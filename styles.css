@@ -1,0 +1,73 @@
+/* Global Styles */
+
+body, p, h1, h2, h3, h4, h5, h6, a, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Main Styles */
+
+body {
+    background-color: #ffffff;
+    font-family: 'Lucida Console', Monaco, monospace;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: #F5F5F5;
+}
+
+/* This nav img uses em values since rem values doesnt work properly for some reason */
+
+nav img {
+    width: 0.9em;
+    height: 0.9em;
+    margin-left: 0.1em;
+}
+
+nav p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    gap: 1rem;
+    margin: auto 0;
+    font-size: 80%;
+}
+
+/* Media Queries */
+
+@media (min-width: 576px) {
+    body {
+      font-size: 18px;
+    }
+}  
+
+ @media (min-width: 768px) {
+    body {
+      font-size: 20px;
+    }
+}
+  
+@media (min-width: 992px) {
+    body {
+      font-size: 22px;
+    }
+}
+  
+  @media (min-width: 1200px) {
+    body {
+      font-size: 24px;
+    }
+}
