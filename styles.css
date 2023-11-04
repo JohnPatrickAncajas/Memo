@@ -1,52 +1,56 @@
 /* Global Styles */
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 p {
   opacity: 90%;
 }
 
+a {
+  text-decoration: none;
+}
+
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 /* Main Styles */
 
 body {
-    background-color: #ffffff;
-    font-family: 'Lucida Console', Monaco, monospace;
-    font-size: 16px;
-    line-height: 1.5;
+  background-color: #ffffff;
+  font-family: 'Lucida Console', Monaco, monospace;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 1rem;
-    background-color: #F5F5F5;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background-color: #F5F5F5;
 }
 
 nav img {
-    width: 0.9em;
-    height: 0.9em;
-    vertical-align: middle;
-    margin-left: 0.1em;
+  width: 0.8em;
+  height: 0.8em;
+  vertical-align: middle;
+  margin-left: 0.1em;
 }
 
 nav p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 nav ul {
-    display: flex;
-    gap: 1rem;
-    margin: auto 0;
-    font-size: 80%;
+  display: flex;
+  gap: 1rem;
+  margin: auto 0;
+  font-size: 80%;
 }
 
 header {
@@ -60,39 +64,64 @@ header h1 {
 }
 
 header img {
-  width: 0.9em;
-  height: 0.9em;
+  width: 0.8em;
+  height: 0.8em;
   vertical-align: middle;
   margin-left: 0.1em;
 }
 
+section {
+  margin: 5vh 5vw;
+}
+
+section h2 {
+  margin: 1rem 0;
+}
+
+section ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+section li {
+  padding-bottom: 0.5rem;
+}
+
+footer {
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 70%;
+}
 /* Media Queries */
 
 @media (min-width: 576px) {
-    body {
-      font-size: 18px;
-    }
-    header {
-      margin: 5vh 10vw;
-    }
-}  
+  body {
+    font-size: 18px;
+  }
+  header {
+    margin: 5vh 10vw;
+  }
+  section {
+    margin: 5vh 10vw;
+  }
+} 
 
  @media (min-width: 768px) {
-    body {
-      font-size: 20px;
-    }
+  body {
+    font-size: 20px;
+  }
 }
-  
+
 @media (min-width: 992px) {
-    body {
-      font-size: 22px;
-    }
+  body {
+    font-size: 22px;
+  }
 }
-  
-  @media (min-width: 1200px) {
-    body {
-      font-size: 24px;
-    }
+
+@media (min-width: 1200px) {
+  body {
+    font-size: 24px;
+  }
 }
 
 /* 
