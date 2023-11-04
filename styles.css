@@ -1,8 +1,12 @@
 /* Global Styles */
 
-body, p, h1, h2, h3, h4, h5, h6, a, ul, li {
+* {
     margin: 0;
     padding: 0;
+}
+
+p {
+  opacity: 90%;
 }
 
 ul {
@@ -25,11 +29,10 @@ nav {
     background-color: #F5F5F5;
 }
 
-/* This nav img uses em values since rem values doesnt work properly for some reason */
-
 nav img {
     width: 0.9em;
     height: 0.9em;
+    vertical-align: middle;
     margin-left: 0.1em;
 }
 
@@ -46,11 +49,31 @@ nav ul {
     font-size: 80%;
 }
 
+header {
+  margin: 5vh 5vw;
+  text-align: center;
+  align-items: center;
+}
+
+header h1 {
+  margin: 1rem;
+}
+
+header img {
+  width: 0.9em;
+  height: 0.9em;
+  vertical-align: middle;
+  margin-left: 0.1em;
+}
+
 /* Media Queries */
 
 @media (min-width: 576px) {
     body {
       font-size: 18px;
+    }
+    header {
+      margin: 5vh 10vw;
     }
 }  
 
@@ -71,3 +94,13 @@ nav ul {
       font-size: 24px;
     }
 }
+
+/* 
+
+This part is for dark mode later!
+
+img {
+  filter: invert(100%);
+} 
+
+*/
