@@ -3,21 +3,23 @@
 * {
   margin: 0;
   padding: 0;
+  text-decoration: none;
+  scroll-behavior: smooth;
 }
 
 p {
   opacity: 90%;
 }
 
-a {
-  text-decoration: none;
+a:hover {
+  cursor: pointer;
 }
 
 ul {
   list-style: none;
 }
 
-/* Main Styles */
+/* Nav Styles */
 
 body {
   background-color: #ffffff;
@@ -53,6 +55,12 @@ nav ul {
   font-size: 80%;
 }
 
+nav a {
+  color: inherit;
+}
+
+/* Header Styles */
+
 header {
   margin: 5vh 5vw;
   text-align: center;
@@ -69,6 +77,8 @@ header img {
   vertical-align: middle;
   margin-left: 0.1em;
 }
+
+/* Section Styles */
 
 section {
   margin: 5vh 5vw;
@@ -87,20 +97,25 @@ section li {
   padding-bottom: 0.5rem;
 }
 
+/* Footer Styles */
+
 footer {
   margin: 1rem 0;
   text-align: center;
   font-size: 70%;
 }
+
 /* Media Queries */
 
 @media (min-width: 576px) {
   body {
     font-size: 18px;
   }
+  
   header {
     margin: 5vh 10vw;
   }
+
   section {
     margin: 5vh 10vw;
   }
