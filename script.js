@@ -15,9 +15,19 @@ const footer = body.children[1];
 
 let notes = document.querySelectorAll('.notes');
 
-// Event listeners
+// Element declarations EXPERIMENTAL
+
+let notesList = ["This is your list of task!", "Task 1", "Task 2", "Task 3"];
+
+let notesListString = JSON.stringify(notesList);
+
+localStorage.setItem('data', notesListString);
+
+// Event listeners ONCLICK
 
 buttonHome.addEventListener('click', function() {
+
+    // Home button
 
     if (isShownHome == false) {
 
@@ -26,7 +36,7 @@ buttonHome.addEventListener('click', function() {
         home.style.display = 'block';
 
         notes.forEach(function(element) {
-            element.style.display = 'none';
+            element.remove();
         });
 
         isShownHome = true;
@@ -39,6 +49,8 @@ buttonHome.addEventListener('click', function() {
 
 buttonNotes.addEventListener('click', function() {
 
+   // Notes button
+
     if (isShownNotes == false) {
 
         home.style.display = 'none';
@@ -47,7 +59,15 @@ buttonNotes.addEventListener('click', function() {
 
         newDiv.classList.add('notes');
 
-        newDiv.textContent = 'This is the data saved at local storage';
+        // EXPERIMENTAL
+
+        const data = localStorage.getItem('data');
+
+        const currentArray = JSON.parse(data);
+
+        newDiv.textContent = currentArray;
+
+        // EXPERIMENTAL
 
         body.insertBefore(newDiv, footer);
 
@@ -59,16 +79,30 @@ buttonNotes.addEventListener('click', function() {
     } else {
 
         const newDiv = document.createElement('div');
-
         newDiv.classList.add('notes');
 
-        newDiv.textContent = 'This is new data created.';
+        // EXPERIMENTAL
+
+        const currentArrayString = localStorage.getItem('data');
+        const currentArray = JSON.parse(currentArrayString);
+
+        const newNote = currentArray.length;
+        currentArray.push("Task " + newNote);
+
+        newDiv.textContent = currentArray;
+
+        const updatedArrayString = JSON.stringify(currentArray);
+        localStorage.setItem('data', updatedArrayString);
+
+        // EXPERIMENTAL
 
         body.insertBefore(newDiv, footer);
 
         notes = document.querySelectorAll('.notes');
     }
 });
+
+// Event listeners ONLOAD
 
 document.addEventListener('DOMContentLoaded', function() {
 
