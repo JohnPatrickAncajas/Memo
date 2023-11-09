@@ -22,7 +22,7 @@ ul {
 /* Nav Styles */
 
 body {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   font-family: 'Lucida Console', Monaco, monospace;
   font-size: 16px;
   line-height: 1.5;
@@ -95,6 +95,47 @@ section ul {
 
 section li {
   padding-bottom: 0.5rem;
+}
+
+/* Notes Styles */
+
+.notes {
+  margin: 5vh 5vw;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #F5F5F5;
+}
+
+#notes {
+  display: none;
+  text-align: center;
+}
+
+#notesData {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  grid-gap: 1rem; 
+}
+
+#notesTitle {
+  grid-column: 1 / 2;
+  grid-row: 1 / 1;
+}
+
+#notesDate {
+  grid-column: 3 / 4;
+  grid-row: 1 / 1;
+}
+
+#notesText {
+  grid-column: 1 / 4;
+  grid-row: 2 / 2;
+}
+
+#notesOptions {
+  grid-column: 1 / 4;
+  grid-row: 3 / 3;
 }
 
 /* Footer Styles */

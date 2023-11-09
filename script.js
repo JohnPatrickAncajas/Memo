@@ -9,19 +9,21 @@ const buttonHome = document.getElementById('buttonHome');
 const buttonNotes = document.getElementById('buttonNotes');
 const body = document.querySelector('body');
 const home = document.getElementById('home');
-const footer = body.children[1];
+const footer = document.getElementById('footer');
+const notes = document.getElementById('notes');
 
 // Element declarations LET
 
-let notes = document.querySelectorAll('.notes');
+let notesDiv = document.querySelectorAll('.notes');
 
 // Element declarations EXPERIMENTAL
 
-let notesList = ["This is your list of task!", "Task 1", "Task 2", "Task 3"];
+let notesList = ["Task 1", "Task 2", "Task 3"];
 
 let notesListString = JSON.stringify(notesList);
 
 localStorage.setItem('data', notesListString);
+
 
 // Event listeners ONCLICK
 
@@ -31,11 +33,12 @@ buttonHome.addEventListener('click', function() {
 
     if (isShownHome == false) {
 
-        console.log("Welcome to home!");
+        // Home click if not at Home
 
         home.style.display = 'block';
+        notes.style.display = 'none';
 
-        notes.forEach(function(element) {
+        notesDiv.forEach(function(element) {
             element.remove();
         });
 
@@ -43,6 +46,9 @@ buttonHome.addEventListener('click', function() {
         isShownNotes = false;
 
     } else {
+
+        // Home click if at Home
+
         console.log("Your at home already!");
     }
 });
@@ -53,11 +59,45 @@ buttonNotes.addEventListener('click', function() {
 
     if (isShownNotes == false) {
 
+        // Notes click if not at Notes
+
         home.style.display = 'none';
+        notes.style.display = 'block';
+    
+        // EXPERIMENTAL
+
+        const data = localStorage.getItem('data');
+
+        const currentArray = JSON.parse(data);
+
+        currentArray.forEach(value => {
+
+            const newDiv = document.createElement('div');
+
+            newDiv.classList.add('notes');
+
+            newDiv.textContent = value;
+
+            body.insertBefore(newDiv, footer);
+        });
+
+        // EXPERIMENTAL
+
+        notesDiv = document.querySelectorAll('.notes');
+
+        isShownNotes = true;
+        isShownHome = false;
+
+    } else {
+
+        // Notes click if at Notes
 
         const newDiv = document.createElement('div');
-
         newDiv.classList.add('notes');
+
+        notesDiv.forEach(function(element) {
+            element.remove();
+        });
 
         // EXPERIMENTAL
 
@@ -65,42 +105,30 @@ buttonNotes.addEventListener('click', function() {
 
         const currentArray = JSON.parse(data);
 
-        newDiv.textContent = currentArray;
+        const currentArrayLength = currentArray.length + 1;
 
-        // EXPERIMENTAL
+        currentArray.push("Task " + currentArrayLength);
 
-        body.insertBefore(newDiv, footer);
+        currentArray.forEach(value => {
 
-        notes = document.querySelectorAll('.notes');
+            const newDiv = document.createElement('div');
 
-        isShownNotes = true;
-        isShownHome = false;
+            newDiv.classList.add('notes');
 
-    } else {
+            newDiv.textContent = value;
 
-        const newDiv = document.createElement('div');
-        newDiv.classList.add('notes');
-
-        // EXPERIMENTAL
-
-        const currentArrayString = localStorage.getItem('data');
-        const currentArray = JSON.parse(currentArrayString);
-
-        const newNote = currentArray.length;
-        currentArray.push("Task " + newNote);
-
-        newDiv.textContent = currentArray;
+            body.insertBefore(newDiv, footer);
+        });
 
         const updatedArrayString = JSON.stringify(currentArray);
         localStorage.setItem('data', updatedArrayString);
 
         // EXPERIMENTAL
 
-        body.insertBefore(newDiv, footer);
-
-        notes = document.querySelectorAll('.notes');
+        notesDiv = document.querySelectorAll('.notes');
     }
 });
+
 
 // Event listeners ONLOAD
 
