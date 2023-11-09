@@ -5,6 +5,7 @@
   padding: 0;
   text-decoration: none;
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 p {
@@ -32,7 +33,7 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 1rem;
-  background-color: #F5F5F5;
+  background-color: #EEEEEE;
 }
 
 nav img {
@@ -103,7 +104,7 @@ section li {
   margin: 5vh 5vw;
   padding: 1rem;
   border-radius: 1rem;
-  background-color: #F5F5F5;
+  background-color: #EEEEEE;
 }
 
 #notes {
@@ -115,7 +116,8 @@ section li {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-template-rows: auto auto auto;
-  grid-gap: 1rem; 
+  grid-gap: 1rem;
+  margin-top: 1rem;
 }
 
 #notesTitle {
@@ -123,9 +125,17 @@ section li {
   grid-row: 1 / 1;
 }
 
+#notesTitleInput {
+  height: 2rem;
+}
+
 #notesDate {
   grid-column: 3 / 4;
   grid-row: 1 / 1;
+}
+
+#notesDateInput {
+  height: 2rem;
 }
 
 #notesText {
@@ -133,9 +143,19 @@ section li {
   grid-row: 2 / 2;
 }
 
+#notesTextInput {
+  width: 100%;
+  height: 5rem;
+  resize: none;
+}
+
 #notesOptions {
   grid-column: 1 / 4;
   grid-row: 3 / 3;
+}
+
+#notesOptionsInput {
+  height: 2rem;
 }
 
 /* Footer Styles */
@@ -158,6 +178,10 @@ footer {
   }
 
   section {
+    margin: 5vh 10vw;
+  }
+
+  .notes {
     margin: 5vh 10vw;
   }
 } 
