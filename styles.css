@@ -114,48 +114,69 @@ section li {
 
 #notesData {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto auto;
   grid-gap: 1rem;
-  margin-top: 1rem;
+  padding: 1rem 0;
 }
 
 #notesTitle {
   grid-column: 1 / 2;
   grid-row: 1 / 1;
+  justify-self: left;
 }
 
 #notesTitleInput {
+  padding: 1rem;
   height: 2rem;
+  border-radius: 0.5rem;
 }
 
 #notesDate {
-  grid-column: 3 / 4;
+  grid-column: 2 / 3;
   grid-row: 1 / 1;
+  justify-self: right;
 }
 
 #notesDateInput {
+  padding: 1rem;
   height: 2rem;
+  border-radius: 0.5rem;
 }
 
 #notesText {
-  grid-column: 1 / 4;
+  grid-column: 1 / 3;
   grid-row: 2 / 2;
 }
 
 #notesTextInput {
+  padding: 1rem;
   width: 100%;
   height: 5rem;
   resize: none;
+  border-radius: 0.5rem;
 }
 
 #notesOptions {
-  grid-column: 1 / 4;
+  grid-column: 1 / 3;
   grid-row: 3 / 3;
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  justify-self: right;
 }
 
-#notesOptionsInput {
-  height: 2rem;
+#notesOptions button {
+  padding: 0.5rem;
+  background-color: #EEEEEE;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+
+#notesOptions button:hover {
+  border: 2px solid black;
+  background-color: #FFFFFF;
+  cursor: pointer;
 }
 
 /* Footer Styles */
