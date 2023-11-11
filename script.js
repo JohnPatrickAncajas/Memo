@@ -18,7 +18,7 @@ let notesDiv = document.querySelectorAll('.notes');
 
 // Element declarations EXPERIMENTAL
 
-let notesList = ["Task 1", "Task 2", "Task 3"];
+let notesList = [["Task 1 Title", "Task 1 Time", "Task 1"], ["Task 2 Title", "Task 2 Time", "Task 2"], ["Task 3 Title", "Task 3 Time", "Task 3"]];
 
 let notesListString = JSON.stringify(notesList);
 
@@ -107,7 +107,7 @@ buttonNotes.addEventListener('click', function() {
 
         const currentArrayLength = currentArray.length + 1;
 
-        currentArray.push("Task " + currentArrayLength);
+        currentArray.push(["Task " + currentArrayLength + " Title", "Task " + currentArrayLength + " Date", "Task " + currentArrayLength]);
 
         currentArray.forEach(value => {
 
