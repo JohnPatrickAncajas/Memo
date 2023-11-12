@@ -60,8 +60,6 @@ buttonNotes.addEventListener('click', function() {
 
         home.style.display = 'none';
         notes.style.display = 'block';
-    
-        // EXPERIMENTAL
 
         const data = localStorage.getItem('data');
 
@@ -94,8 +92,6 @@ buttonNotes.addEventListener('click', function() {
             body.insertBefore(newDiv, footer);
         });
 
-        // EXPERIMENTAL
-
         notesDiv = document.querySelectorAll('.notes');
 
         isShownNotes = true;
@@ -112,8 +108,6 @@ buttonNotes.addEventListener('click', function() {
             element.remove();
         });
 
-        // EXPERIMENTAL
-
         const data = localStorage.getItem('data');
 
         const currentArray = JSON.parse(data);
@@ -125,18 +119,32 @@ buttonNotes.addEventListener('click', function() {
         currentArray.forEach(value => {
 
             const newDiv = document.createElement('div');
+            const newDivTitleAndDate = document.createElement('div');
+            const newPTitle = document.createElement("p");
+            const newPDate = document.createElement("p");
+            const newPTask = document.createElement("p");
+            const hr = document.createElement("hr");
 
             newDiv.classList.add('notes');
+            newDivTitleAndDate.classList.add('notesTitleAndDate');
+            newPTask.classList.add('notesTask');
 
-            newDiv.textContent = value;
+            newPTitle.textContent = value[0];
+            newPDate.textContent = value[1];
+            newPTask.textContent = value[2];
+
+            newDivTitleAndDate.appendChild(newPTitle);
+            newDivTitleAndDate.appendChild(newPDate);
+
+            newDiv.appendChild(newDivTitleAndDate);
+            newDiv.appendChild(hr);
+            newDiv.appendChild(newPTask);
 
             body.insertBefore(newDiv, footer);
         });
 
         const updatedArrayString = JSON.stringify(currentArray);
         localStorage.setItem('data', updatedArrayString);
-
-        // EXPERIMENTAL
 
         notesDiv = document.querySelectorAll('.notes');
     }
