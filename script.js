@@ -15,15 +15,12 @@ const notes = document.getElementById('notes');
 // Element declarations LET
 
 let notesDiv = document.querySelectorAll('.notes');
-
-// Element declarations EXPERIMENTAL
-
-let notesList = [["Task 1 Title", "Task 1 Time", "Task 1"], ["Task 2 Title", "Task 2 Time", "Task 2"], ["Task 3 Title", "Task 3 Time", "Task 3"]];
-
+let notesList = [["Christmass!", "December 25, 2023", "Celebrate the christmass holiday and enjoy!"], ["New Year!", "January 1, 2024", "Have fun and celebrate the new year!"], ["Death.", "Soon.", "Make each moment count."]];
 let notesListString = JSON.stringify(notesList);
 
-localStorage.setItem('data', notesListString);
+// Data declarations
 
+localStorage.setItem('data', notesListString);
 
 // Event listeners ONCLICK
 
@@ -73,10 +70,26 @@ buttonNotes.addEventListener('click', function() {
         currentArray.forEach(value => {
 
             const newDiv = document.createElement('div');
+            const newDivTitleAndDate = document.createElement('div');
+            const newPTitle = document.createElement("p");
+            const newPDate = document.createElement("p");
+            const newPTask = document.createElement("p");
+            const hr = document.createElement("hr");
 
             newDiv.classList.add('notes');
+            newDivTitleAndDate.classList.add('notesTitleAndDate');
+            newPTask.classList.add('notesTask');
 
-            newDiv.textContent = value;
+            newPTitle.textContent = value[0];
+            newPDate.textContent = value[1];
+            newPTask.textContent = value[2];
+
+            newDivTitleAndDate.appendChild(newPTitle);
+            newDivTitleAndDate.appendChild(newPDate);
+
+            newDiv.appendChild(newDivTitleAndDate);
+            newDiv.appendChild(hr);
+            newDiv.appendChild(newPTask);
 
             body.insertBefore(newDiv, footer);
         });

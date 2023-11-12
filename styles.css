@@ -195,8 +195,22 @@ section li {
   cursor: pointer;
 }
 
-#myNotes {
-  padding-top: 3rem;
+.notesHeading {
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #EEEEEE;
+  width: fit-content;
+}
+
+.notesTitleAndDate {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.notesTask {
+  margin-top: 1rem;
 }
 
 /* Footer Styles */
