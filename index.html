@@ -21,9 +21,9 @@
     <nav>
         <p>MEMO<img src="assets/Logo.png" alt="Logo of Memo"></p>
         <ul>
-            <li><a id="buttonHome">Home</a></li>
-            <li><a id="buttonNotes">Notes</a></li>
-            <li><a>User</a></li>
+            <li><a id="buttonHome"><img src="assets/Home.png" alt="Logo of Home">Home</a></li>
+            <li><a id="buttonNotes"><img src="assets/Calendar.png" alt="Logo of Calendar">Notes</a></li>
+            <li><a><img src="assets/User.png" alt="Logo of User">User</a></li>
         </ul>
     </nav>
 
@@ -33,7 +33,7 @@
         
         <header>
             <h1>MEMO<img src="assets/Logo.png" alt="Logo of Memo"></h1>
-            <p>Memo is a user-friendly online note-taking platform that allows you to write down, save, and access your notes from anywhere, ensuring you never lose important information again.</p>
+            <p>Memo is a user-friendly note-taking platform that allows you to write down, save, and access your notes from anywhere, ensuring you never lose important information again.</p>
         </header>
     
         <hr>
@@ -42,9 +42,9 @@
             <h2>How to use?</h2>
             <ul>
                 <li>Go to Notes.</li>
-                <li>Write the Title, Date and Description.</li>
-                <li>Click &plus; to add the note.</li>
-                <li>Click &times; to remove the note.</li>
+                <li>Write the Title, Date and Task.</li>
+                <li>Click <img src="assets/Plus.png" class="inlineLogo"> to add the note.</li>
+                <li>Click <img src="assets/Times.png" class="inlineLogo"> to remove the note.</li>
             </ul>
         </section>
         
@@ -63,7 +63,7 @@
     <!-- This is the notes section-->
 
     <section id="notes">
-        <h1>My Notes</h1>
+        <h1><img src="assets/Plus.png" class="notesLogo">Add Notes</h1>
         <hr>
         <div id="notesData">
             <p id="notesTitle">
@@ -75,8 +75,8 @@
                 <input type="text" id="notesDateInput" name="notesDateInput" placeholder="Date" required>
             </p>
             <p id="notesText">
-                <label for="notesTextInput">Content:</label>
-                <textarea id="notesTextInput" name="notesTextInput" placeholder="Content" required></textarea>
+                <label for="notesTextInput">Task:</label>
+                <textarea id="notesTextInput" name="notesTextInput" placeholder="Task" required></textarea>
             </p>
             <ul id="notesOptions">
                 <li><button>Add</button></li>
@@ -84,6 +84,8 @@
             </ul>
         </div>
         <hr>
+
+        <h1 id="myNotes"><img src="assets/Calendar.png" class="notesLogo">My Notes</h1>
     </section>
 
     <!-- This is the footer section -->
