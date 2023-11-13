@@ -165,7 +165,7 @@ section li {
   grid-row: 3 / 3;
 }
 
-#notesTextInput {
+#notesTaskInput {
   padding: 1rem;
   width: 100%;
   height: 5rem;
@@ -253,7 +253,7 @@ footer {
     justify-self: right;
   }
 
-  #notesText {
+  #notesTask {
     grid-column: 1 / 3;
     grid-row: 2 / 2;
   }

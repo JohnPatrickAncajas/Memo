@@ -12,6 +12,13 @@ const home = document.getElementById('home');
 const footer = document.getElementById('footer');
 const notes = document.getElementById('notes');
 
+const notesTitleInput = document.getElementById('notesTitleInput');
+const notesDateInput = document.getElementById('notesDateInput');
+const notesTaskInput = document.getElementById('notesTaskInput');
+
+const notesAddButton = document.getElementById('notesAddButton');
+const notesClearButton = document.getElementById('notesClearButton');
+
 // Element declarations LET
 
 let notesDiv = document.querySelectorAll('.notes');
@@ -21,6 +28,7 @@ let notesListString = JSON.stringify(notesList);
 // Data declarations
 
 localStorage.setItem('data', notesListString);
+
 
 // Event listeners ONCLICK
 
@@ -46,9 +54,10 @@ buttonHome.addEventListener('click', function() {
 
         // Home click if at Home
 
-        console.log("Your at home already!");
+        console.log("Your at Home already!");
     }
 });
+
 
 buttonNotes.addEventListener('click', function() {
 
@@ -101,8 +110,18 @@ buttonNotes.addEventListener('click', function() {
 
         // Notes click if at Notes
 
-        const newDiv = document.createElement('div');
-        newDiv.classList.add('notes');
+        console.log('Your at Notes already!');
+    }
+});
+
+
+notesAddButton.addEventListener('click', function() {
+
+        // Add Notes button
+
+        const notesTitleInputValue = notesTitleInput.value;
+        const notesDateInputValue = notesDateInput.value;
+        const notesTaskInputValue = notesTaskInput.value;
 
         notesDiv.forEach(function(element) {
             element.remove();
@@ -114,7 +133,7 @@ buttonNotes.addEventListener('click', function() {
 
         const currentArrayLength = currentArray.length + 1;
 
-        currentArray.push(["Task " + currentArrayLength + " Title", "Task " + currentArrayLength + " Date", "Task " + currentArrayLength]);
+        currentArray.push([notesTitleInputValue, notesDateInputValue, notesTaskInputValue]);
 
         currentArray.forEach(value => {
 
@@ -147,7 +166,6 @@ buttonNotes.addEventListener('click', function() {
         localStorage.setItem('data', updatedArrayString);
 
         notesDiv = document.querySelectorAll('.notes');
-    }
 });
 
 
