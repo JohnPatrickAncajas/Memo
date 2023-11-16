@@ -123,6 +123,10 @@ notesAddButton.addEventListener('click', function() {
         const notesDateInputValue = notesDateInput.value;
         const notesTaskInputValue = notesTaskInput.value;
 
+        if (notesTitleInputValue == '' || notesDateInputValue == '' || notesTaskInputValue == '') {
+            alert('You need to complete all forms!');
+        } 
+
         notesDiv.forEach(function(element) {
             element.remove();
         });
@@ -130,8 +134,6 @@ notesAddButton.addEventListener('click', function() {
         const data = localStorage.getItem('data');
 
         const currentArray = JSON.parse(data);
-
-        const currentArrayLength = currentArray.length + 1;
 
         currentArray.push([notesTitleInputValue, notesDateInputValue, notesTaskInputValue]);
 
@@ -166,6 +168,10 @@ notesAddButton.addEventListener('click', function() {
         localStorage.setItem('data', updatedArrayString);
 
         notesDiv = document.querySelectorAll('.notes');
+
+        notesTitleInput.value = '';
+        notesDateInput.value = '';
+        notesTaskInput.value = '';
 });
 
 
