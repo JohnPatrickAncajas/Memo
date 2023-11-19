@@ -1,16 +1,13 @@
-// Boolean declarations
-
-let isShownHome = true;
-let isShownNotes = false;
-
 // Element declarations CONST
+
+const body = document.querySelector('body');
+const footer = document.getElementById('footer');
+
+const home = document.getElementById('home');
+const notes = document.getElementById('notes');
 
 const buttonHome = document.getElementById('buttonHome');
 const buttonNotes = document.getElementById('buttonNotes');
-const body = document.querySelector('body');
-const home = document.getElementById('home');
-const footer = document.getElementById('footer');
-const notes = document.getElementById('notes');
 
 const notesTitleInput = document.getElementById('notesTitleInput');
 const notesDateInput = document.getElementById('notesDateInput');
@@ -19,15 +16,24 @@ const notesTaskInput = document.getElementById('notesTaskInput');
 const notesAddButton = document.getElementById('notesAddButton');
 const notesClearButton = document.getElementById('notesClearButton');
 
-// Element declarations LET
+// Value declarations LET
 
-let notesDiv = document.querySelectorAll('.notes');
-let notesList = [["Christmass", "December 25", "Celebrate the christmass holidays and enjoy!"], ["New Year", "January 1", "Have fun and celebrate the new year!"], ["Valentines", "February 14", "Share the love at this special day!"], ["Death", "Soon", "Make each moment count."]];
+let notesList = [
+    ["Christmass", "December 25", "Celebrate the Christmas holidays and enjoy!"],
+    ["New Year", "January 1", "Have fun and celebrate the new year!"],
+    ["Valentine's", "February 14", "Share the love on this special day!"],
+    ["Death", "Soon", "Make each moment count."]
+];
+
 let notesListString = JSON.stringify(notesList);
+
+let isShownHome = true;
+let isShownNotes = false;
 
 // Data declarations
 
 localStorage.setItem('data', notesListString);
+
 
 
 // Event listeners ONCLICK
@@ -38,7 +44,7 @@ buttonHome.addEventListener('click', function() {
 
     if (isShownHome == false) {
 
-        // Home click if not at Home
+        // Home click event if not already at Home
 
         home.style.display = 'block';
         notes.style.display = 'none';
@@ -52,7 +58,7 @@ buttonHome.addEventListener('click', function() {
 
     } else {
 
-        // Home click if at Home
+        // Home click event if already at Home
 
         console.log("Your at Home already!");
     }
@@ -65,7 +71,7 @@ buttonNotes.addEventListener('click', function() {
 
     if (isShownNotes == false) {
 
-        // Notes click if not at Notes
+        // Notes click event if not already at Notes
 
         home.style.display = 'none';
         notes.style.display = 'block';
@@ -108,7 +114,7 @@ buttonNotes.addEventListener('click', function() {
 
     } else {
 
-        // Notes click if at Notes
+        // Notes click event if already at Notes
 
         console.log('Your at Notes already!');
     }
@@ -199,5 +205,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   
     getCurrentYear();
-  });
-  
+});
