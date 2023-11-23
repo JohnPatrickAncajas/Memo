@@ -229,15 +229,7 @@ footer {
     font-size: 18px;
   }
   
-  header {
-    margin: 5vh 10vw;
-  }
-
-  section {
-    margin: 5vh 10vw;
-  }
-
-  .notes {
+  header, section, .notes {
     margin: 5vh 10vw;
   }
 
@@ -282,13 +274,3 @@ footer {
     font-size: 24px;
   }
 }
-
-/* 
-
-This part is for dark mode later!
-
-img {
-  filter: invert(100%);
-} 
-
-*/
