@@ -16,6 +16,9 @@ const notesTaskInput = document.getElementById('notesTaskInput');
 const notesAddButton = document.getElementById('notesAddButton');
 const notesClearButton = document.getElementById('notesClearButton');
 
+const addNoteHeading = document.getElementById('addNoteHeading');
+const myNoteHeading = document.getElementById('myNoteHeading');
+
 // Value declarations LET
 
 let notesList = [
@@ -29,6 +32,9 @@ let notesListString = JSON.stringify(notesList);
 
 let isShownHome = true;
 let isShownNotes = false;
+
+let memoLastPage = 'home_Memo';
+let noteLastScroll = 'add_Notes';
 
 // Data declarations
 
@@ -188,6 +194,23 @@ notesAddButton.addEventListener('click', function() {
         }
 });
 
+
+/* EXPERIMENTAL
+
+// Event listeners SCROLL
+
+window.addEventListener('scroll', function() {
+
+    var scrollPosition = window.scrollY;
+    let noteLastScroll = 'add_Notes';
+
+    var myNoteHeadingDistance = myNoteHeading.getBoundingClientRect();
+    var addNoteHeadingDistance = addNoteHeading.getBoundingClientRect();
+
+    var scrollDistance = rect.top + window.scrollY;
+});
+
+*/
 
 // Event listeners ONLOAD
 
