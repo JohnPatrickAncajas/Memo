@@ -195,22 +195,26 @@ notesAddButton.addEventListener('click', function() {
 });
 
 
-/* EXPERIMENTAL
+// // Event listeners SCROLL
 
-// Event listeners SCROLL
+// window.addEventListener('scroll', function() {
 
-window.addEventListener('scroll', function() {
+//     let scrollPosition = window.scrollY;
+//     let noteLastScroll = 'add_Notes';
 
-    var scrollPosition = window.scrollY;
-    let noteLastScroll = 'add_Notes';
+//     let myNoteHeadingDistance = myNoteHeading.getBoundingClientRect();
+//     let addNoteHeadingDistance = addNoteHeading.getBoundingClientRect();
 
-    var myNoteHeadingDistance = myNoteHeading.getBoundingClientRect();
-    var addNoteHeadingDistance = addNoteHeading.getBoundingClientRect();
 
-    var scrollDistance = rect.top + window.scrollY;
-});
+//     if (scrollPosition > myNoteHeadingDistance) {
+//         noteLastScroll = 'my_notes';
+//         print(noteLastScroll);
+//     } else {
+//         noteLastScroll = 'add_notes';
+//         print(noteLastScroll);
+//     }
+// });
 
-*/
 
 // Event listeners ONLOAD
 
