@@ -21,22 +21,8 @@ const myNoteHeading = document.getElementById('myNoteHeading');
 
 // Value declarations LET
 
-let notesList = [
-    ["Christmas", "December 25", "Celebrate the Christmas holidays and enjoy!"],
-    ["New Year", "January 1", "Have fun and celebrate the new year!"],
-    ["Valentine's Day", "February 14", "Share the love on this special day!"],
-    ["Death", "Soon", "Make each moment count."]
-];
-
-let notesListString = JSON.stringify(notesList);
-
 let isShownHome = true;
 let isShownNotes = false;
-
-// Data declarations
-
-localStorage.setItem('data', notesListString);
-
 
 
 // Event listeners ONCLICK
@@ -208,4 +194,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   
     getCurrentYear();
+
+    // Initialize array of notes
+
+    const startup = localStorage.getItem('startup');
+
+    if (startup == 'true') {
+        localStorage.setItem('startup', 'false');
+    } else {
+        localStorage.setItem('startup', 'true');
+    }
+
+    if (startup == 'true') {
+
+        let notesList = [
+            ["Christmas", "December 25", "Celebrate the Christmas holidays and enjoy!"],
+            ["New Year", "January 1", "Have fun and celebrate the new year!"],
+            ["Valentine's Day", "February 14", "Share the love on this special day!"],
+            ["Death", "Soon", "Make each moment count."]
+        ];
+
+        let notesListString = JSON.stringify(notesList);
+
+        localStorage.setItem('data', notesListString);
+    }
 });
