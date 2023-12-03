@@ -22,9 +22,9 @@ const myNoteHeading = document.getElementById('myNoteHeading');
 // Value declarations LET
 
 let notesList = [
-    ["Christmass", "December 25", "Celebrate the Christmas holidays and enjoy!"],
+    ["Christmas", "December 25", "Celebrate the Christmas holidays and enjoy!"],
     ["New Year", "January 1", "Have fun and celebrate the new year!"],
-    ["Valentine's", "February 14", "Share the love on this special day!"],
+    ["Valentine's Day", "February 14", "Share the love on this special day!"],
     ["Death", "Soon", "Make each moment count."]
 ];
 
@@ -32,9 +32,6 @@ let notesListString = JSON.stringify(notesList);
 
 let isShownHome = true;
 let isShownNotes = false;
-
-let memoLastPage = 'homeMemo';
-let noteLastScroll = 'addNote';
 
 // Data declarations
 
@@ -117,7 +114,7 @@ buttonNotes.addEventListener('click', function() {
 
         isShownNotes = true;
         isShownHome = false;
-
+        
     } else {
 
         // Notes click event if already at Notes
@@ -192,40 +189,6 @@ notesAddButton.addEventListener('click', function() {
             alert('You need to complete all forms!');
 
         }
-});
-
-
-// Event listeners SCROLL
-
-window.addEventListener('scroll', function() {
-
-    if (isShownNotes == true) {
-        
-        let scrollPosition = window.scrollY;
-
-        let myNoteHeadingRect = myNoteHeading.getBoundingClientRect();
-        let myNoteHeadingRectTop = myNoteHeadingRect.top;
-
-        let trueScrollPosition = scrollPosition + myNoteHeadingRectTop - 32;
-
-        if (scrollPosition > trueScrollPosition) {
-
-            localStorage.setItem('noteScrollState', 'myNote');
-
-            let noteLastScroll = localStorage.getItem('noteScrollState');
-
-            console.log(noteLastScroll);
-            
-        } else {
-
-            localStorage.setItem('noteScrollState', 'addNote');
-
-            let noteLastScroll = localStorage.getItem('noteScrollState');
-
-            console.log(noteLastScroll);
-
-        }
-    }
 });
 
 
