@@ -33,8 +33,8 @@ let notesListString = JSON.stringify(notesList);
 let isShownHome = true;
 let isShownNotes = false;
 
-let memoLastPage = 'home_Memo';
-let noteLastScroll = 'add_Notes';
+let memoLastPage = 'homeMemo';
+let noteLastScroll = 'addNote';
 
 // Data declarations
 
@@ -199,18 +199,32 @@ notesAddButton.addEventListener('click', function() {
 
 window.addEventListener('scroll', function() {
 
-    let scrollPosition = window.scrollY;
-    let noteLastScroll = 'add_Notes';
+    if (isShownNotes == true) {
+        
+        let scrollPosition = window.scrollY;
 
-    let myNoteHeadingRect = myNoteHeading.getBoundingClientRect();
-    let myNoteHeadingRectTop = myNoteHeadingRect.top;
+        let myNoteHeadingRect = myNoteHeading.getBoundingClientRect();
+        let myNoteHeadingRectTop = myNoteHeadingRect.top;
 
-    if (scrollPosition > myNoteHeadingRectTop) {
-        noteLastScroll = 'my_notes';
-        console.log(noteLastScroll);
-    } else {
-        noteLastScroll = 'add_notes';
-        console.log(noteLastScroll);
+        let trueScrollPosition = scrollPosition + myNoteHeadingRectTop - 32;
+
+        if (scrollPosition > trueScrollPosition) {
+
+            localStorage.setItem('noteScrollState', 'myNote');
+
+            let noteLastScroll = localStorage.getItem('noteScrollState');
+
+            console.log(noteLastScroll);
+            
+        } else {
+
+            localStorage.setItem('noteScrollState', 'addNote');
+
+            let noteLastScroll = localStorage.getItem('noteScrollState');
+
+            console.log(noteLastScroll);
+
+        }
     }
 });
 
