@@ -15,6 +15,7 @@ const notesTaskInput = document.getElementById('notesTaskInput');
 
 const notesAddButton = document.getElementById('notesAddButton');
 const notesClearButton = document.getElementById('notesClearButton');
+const notesEditButton = document.getElementById('notesEditButton');
 
 const addNoteHeading = document.getElementById('addNoteHeading');
 const myNoteHeading = document.getElementById('myNoteHeading');
@@ -24,6 +25,7 @@ const myNoteHeading = document.getElementById('myNoteHeading');
 let isShownHome = true;
 let isShownNotes = false;
 
+let editing = false;
 
 // Event listeners ONCLICK
 
@@ -176,6 +178,103 @@ notesAddButton.addEventListener('click', function() {
 
         }
 });
+
+
+notesEditButton.addEventListener('click', function() {
+
+    if (editing == false) {
+
+        notesDiv.forEach(function(element) {
+            element.remove();
+        });
+    
+        const data = localStorage.getItem('data');
+        
+        const currentArray = JSON.parse(data);
+    
+        currentArray.forEach(value => {
+    
+            const newDiv = document.createElement('div');
+            const newDivTitleAndDate = document.createElement('div');
+            const newPTitle = document.createElement("p");
+            const newPDate = document.createElement("p");
+            const newPTask = document.createElement("p");
+            const hr = document.createElement("hr");
+    
+            newDiv.classList.add('notes');
+            newDivTitleAndDate.classList.add('notesTitleAndDate');
+            newPTask.classList.add('notesTask');
+    
+            newPTitle.textContent = value[0];
+            newPDate.textContent = value[1];
+            newPTask.textContent = value[2];
+    
+            newDivTitleAndDate.appendChild(newPTitle);
+            newDivTitleAndDate.appendChild(newPDate);
+    
+            newDiv.appendChild(newDivTitleAndDate);
+            newDiv.appendChild(hr);
+            newDiv.appendChild(newPTask);
+    
+            body.insertBefore(newDiv, footer);
+        });
+    
+        const updatedArrayString = JSON.stringify(currentArray);
+    
+        localStorage.setItem('data', updatedArrayString);
+        
+        notesDiv = document.querySelectorAll('.notes');
+
+        editing = true;
+
+    } else {
+
+        notesDiv.forEach(function(element) {
+            element.remove();
+        });
+    
+        const data = localStorage.getItem('data');
+        
+        const currentArray = JSON.parse(data);
+    
+        currentArray.forEach(value => {
+    
+            const newDiv = document.createElement('div');
+            const newDivTitleAndDate = document.createElement('div');
+            const newPTitle = document.createElement("p");
+            const newPDate = document.createElement("p");
+            const newPTask = document.createElement("p");
+            const hr = document.createElement("hr");
+    
+            newDiv.classList.add('notes');
+            newDivTitleAndDate.classList.add('notesTitleAndDate');
+            newPTask.classList.add('notesTask');
+    
+            newPTitle.textContent = value[0];
+            newPDate.textContent = value[1];
+            newPTask.textContent = value[2];
+    
+            newDivTitleAndDate.appendChild(newPTitle);
+            newDivTitleAndDate.appendChild(newPDate);
+    
+            newDiv.appendChild(newDivTitleAndDate);
+            newDiv.appendChild(hr);
+            newDiv.appendChild(newPTask);
+    
+            body.insertBefore(newDiv, footer);
+        });
+    
+        const updatedArrayString = JSON.stringify(currentArray);
+    
+        localStorage.setItem('data', updatedArrayString);
+        
+        notesDiv = document.querySelectorAll('.notes');
+        
+        editing = false;
+
+    }
+});
+
 
 
 // Event listeners ONLOAD
