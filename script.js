@@ -51,7 +51,7 @@ buttonHome.addEventListener('click', function() {
 
         // Home click event if already at Home
 
-        console.log("Your at Home already!");
+        console.log('Your at Home already!');
     }
 });
 
@@ -75,10 +75,10 @@ buttonNotes.addEventListener('click', function() {
 
             const newDiv = document.createElement('div');
             const newDivTitleAndDate = document.createElement('div');
-            const newPTitle = document.createElement("p");
-            const newPDate = document.createElement("p");
-            const newPTask = document.createElement("p");
-            const hr = document.createElement("hr");
+            const newPTitle = document.createElement('p');
+            const newPDate = document.createElement('p');
+            const newPTask = document.createElement('p');
+            const hr = document.createElement('hr');
 
             newDiv.classList.add('notes');
             newDivTitleAndDate.classList.add('notesTitleAndDate');
@@ -138,10 +138,10 @@ notesAddButton.addEventListener('click', function() {
     
                 const newDiv = document.createElement('div');
                 const newDivTitleAndDate = document.createElement('div');
-                const newPTitle = document.createElement("p");
-                const newPDate = document.createElement("p");
-                const newPTask = document.createElement("p");
-                const hr = document.createElement("hr");
+                const newPTitle = document.createElement('p');
+                const newPDate = document.createElement('p');
+                const newPTask = document.createElement('p');
+                const hr = document.createElement('hr');
     
                 newDiv.classList.add('notes');
                 newDivTitleAndDate.classList.add('notesTitleAndDate');
@@ -182,6 +182,8 @@ notesAddButton.addEventListener('click', function() {
 
 notesEditButton.addEventListener('click', function() {
 
+    // Edit Notes button
+
     if (editing == false) {
 
         notesDiv.forEach(function(element) {
@@ -192,14 +194,17 @@ notesEditButton.addEventListener('click', function() {
         
         const currentArray = JSON.parse(data);
     
-        currentArray.forEach(value => {
+        currentArray.forEach((value, index) => {
     
             const newDiv = document.createElement('div');
             const newDivTitleAndDate = document.createElement('div');
-            const newPTitle = document.createElement("p");
-            const newPDate = document.createElement("p");
-            const newPTask = document.createElement("p");
-            const hr = document.createElement("hr");
+            const newPTitle = document.createElement('p');
+            const newPDate = document.createElement('p');
+            const newPTask = document.createElement('p');
+            const hr = document.createElement('hr');
+            const newUpButton = document.createElement('button');
+            const newDownButton = document.createElement('button');
+            const newRemoveButton = document.createElement('button');
     
             newDiv.classList.add('notes');
             newDivTitleAndDate.classList.add('notesTitleAndDate');
@@ -209,12 +214,40 @@ notesEditButton.addEventListener('click', function() {
             newPDate.textContent = value[1];
             newPTask.textContent = value[2];
     
+            newUpButton.innerText = 'Up';
+            newDownButton.innerText = 'Down';
+            newRemoveButton.innerText = 'Remove';
+
+            newUpButton.setAttribute('id', 'newUpButton' + index);
+            newUpButton.setAttribute('class', 'btn');
+
+            newDownButton.setAttribute('id', 'newDownButton' + index);
+            newDownButton.setAttribute('class', 'btn');
+
+            newRemoveButton.setAttribute('id', 'newRemoveButton' + index);
+            newRemoveButton.setAttribute('class', 'btn');
+
+            newUpButton.addEventListener('click', function() {
+                alert('newUpButton clicked!');
+            });
+
+            newDownButton.addEventListener('click', function() {
+                alert('newDownButton clicked!');
+            });
+
+            newRemoveButton.addEventListener('click', function() {
+                alert('newRemoveButton clicked!');
+            });
+
             newDivTitleAndDate.appendChild(newPTitle);
             newDivTitleAndDate.appendChild(newPDate);
     
             newDiv.appendChild(newDivTitleAndDate);
             newDiv.appendChild(hr);
             newDiv.appendChild(newPTask);
+            newDiv.appendChild(newUpButton);
+            newDiv.appendChild(newDownButton);
+            newDiv.appendChild(newRemoveButton);
     
             body.insertBefore(newDiv, footer);
         });
@@ -241,10 +274,10 @@ notesEditButton.addEventListener('click', function() {
     
             const newDiv = document.createElement('div');
             const newDivTitleAndDate = document.createElement('div');
-            const newPTitle = document.createElement("p");
-            const newPDate = document.createElement("p");
-            const newPTask = document.createElement("p");
-            const hr = document.createElement("hr");
+            const newPTitle = document.createElement('p');
+            const newPDate = document.createElement('p');
+            const newPTask = document.createElement('p');
+            const hr = document.createElement('hr');
     
             newDiv.classList.add('notes');
             newDivTitleAndDate.classList.add('notesTitleAndDate');
