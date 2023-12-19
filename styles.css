@@ -213,6 +213,13 @@ section li {
   margin-top: 1rem;
 }
 
+.notesUpDownRemove {
+  width: 30%;
+  display: flex;
+  justify-self: right;
+  justify-content: space-between;
+}
+
 /* Footer Styles */
 
 footer {

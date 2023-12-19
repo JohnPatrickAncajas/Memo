@@ -202,14 +202,16 @@ notesEditButton.addEventListener('click', function() {
             const newPDate = document.createElement('p');
             const newPTask = document.createElement('p');
             const hr = document.createElement('hr');
+            const newUpDownRemove = document.createElement('div');
             const newUpButton = document.createElement('button');
             const newDownButton = document.createElement('button');
             const newRemoveButton = document.createElement('button');
     
             newDiv.classList.add('notes');
             newDivTitleAndDate.classList.add('notesTitleAndDate');
+            newUpDownRemove.classList.add('notesUpDownRemove');
             newPTask.classList.add('notesTask');
-    
+
             newPTitle.textContent = value[0];
             newPDate.textContent = value[1];
             newPTask.textContent = value[2];
@@ -219,35 +221,37 @@ notesEditButton.addEventListener('click', function() {
             newRemoveButton.innerText = 'Remove';
 
             newUpButton.setAttribute('id', 'newUpButton' + index);
-            newUpButton.setAttribute('class', 'btn');
+            newUpButton.setAttribute('class', 'upButton');
 
             newDownButton.setAttribute('id', 'newDownButton' + index);
-            newDownButton.setAttribute('class', 'btn');
+            newDownButton.setAttribute('class', 'downButton');
 
             newRemoveButton.setAttribute('id', 'newRemoveButton' + index);
-            newRemoveButton.setAttribute('class', 'btn');
+            newRemoveButton.setAttribute('class', 'removeButton');
 
             newUpButton.addEventListener('click', function() {
-                alert('newUpButton clicked!');
+                alert('Up Button clicked!');
             });
 
             newDownButton.addEventListener('click', function() {
-                alert('newDownButton clicked!');
+                alert('Down Button clicked!');
             });
 
             newRemoveButton.addEventListener('click', function() {
-                alert('newRemoveButton clicked!');
+                alert('Remove Button clicked!');
             });
 
             newDivTitleAndDate.appendChild(newPTitle);
             newDivTitleAndDate.appendChild(newPDate);
     
+            newUpDownRemove.appendChild(newUpButton);
+            newUpDownRemove.appendChild(newDownButton);
+            newUpDownRemove.appendChild(newRemoveButton);
+            
             newDiv.appendChild(newDivTitleAndDate);
             newDiv.appendChild(hr);
             newDiv.appendChild(newPTask);
-            newDiv.appendChild(newUpButton);
-            newDiv.appendChild(newDownButton);
-            newDiv.appendChild(newRemoveButton);
+            newDiv.appendChild(newUpDownRemove);
     
             body.insertBefore(newDiv, footer);
         });
