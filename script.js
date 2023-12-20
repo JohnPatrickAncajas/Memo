@@ -230,16 +230,36 @@ notesEditButton.addEventListener('click', function() {
             newRemoveButton.setAttribute('id', 'newRemoveButton' + index);
             newRemoveButton.setAttribute('class', 'removeButton');
 
+
+            // Up button
+
             newUpButton.addEventListener('click', function() {
                 alert('Up Button clicked!');
             });
+
+
+            // Down button
 
             newDownButton.addEventListener('click', function() {
                 alert('Down Button clicked!');
             });
 
+            
+            // Remove button
+
             newRemoveButton.addEventListener('click', function() {
-                alert('Remove Button clicked!');
+
+                const data = localStorage.getItem('data');
+    
+                const currentArray = JSON.parse(data);
+                
+                console.log(currentArray);
+
+                const updatedArrayString = JSON.stringify(currentArray);
+
+                localStorage.setItem('data', updatedArrayString);
+
+                loadNotes();
             });
 
             newDivTitleAndDate.appendChild(newPTitle);
