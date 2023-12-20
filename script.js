@@ -186,105 +186,8 @@ notesEditButton.addEventListener('click', function() {
 
     if (editing == false) {
 
-        notesDiv.forEach(function(element) {
-            element.remove();
-        });
-    
-        const data = localStorage.getItem('data');
+        loadEditNotes()
         
-        const currentArray = JSON.parse(data);
-    
-        currentArray.forEach((value, index) => {
-    
-            const newDiv = document.createElement('div');
-            const newDivTitleAndDate = document.createElement('div');
-            const newPTitle = document.createElement('p');
-            const newPDate = document.createElement('p');
-            const newPTask = document.createElement('p');
-            const hr1 = document.createElement('hr');
-            const hr2 = document.createElement('hr');
-            const newUpDownRemove = document.createElement('div');
-            const newUpButton = document.createElement('button');
-            const newDownButton = document.createElement('button');
-            const newRemoveButton = document.createElement('button');
-            
-            newDiv.classList.add('notes');
-            newDivTitleAndDate.classList.add('notesTitleAndDate');
-            newUpDownRemove.classList.add('notesUpDownRemove');
-            newPTask.classList.add('notesTask');
-
-            newPTitle.textContent = value[0];
-            newPDate.textContent = value[1];
-            newPTask.textContent = value[2];
-    
-            newUpButton.innerText = 'Up';
-            newDownButton.innerText = 'Down';
-            newRemoveButton.innerText = 'Remove';
-
-            newUpButton.setAttribute('id', 'newUpButton' + index);
-            newUpButton.setAttribute('class', 'upButton');
-
-            newDownButton.setAttribute('id', 'newDownButton' + index);
-            newDownButton.setAttribute('class', 'downButton');
-
-            newRemoveButton.setAttribute('id', 'newRemoveButton' + index);
-            newRemoveButton.setAttribute('class', 'removeButton');
-
-
-            // Up button
-
-            newUpButton.addEventListener('click', function() {
-                alert('Up Button clicked!');
-            });
-
-
-            // Down button
-
-            newDownButton.addEventListener('click', function() {
-                alert('Down Button clicked!');
-            });
-
-            
-            // Remove button
-
-            newRemoveButton.addEventListener('click', function() {
-
-                const data = localStorage.getItem('data');
-    
-                const currentArray = JSON.parse(data);
-                
-                console.log(currentArray);
-
-                const updatedArrayString = JSON.stringify(currentArray);
-
-                localStorage.setItem('data', updatedArrayString);
-
-                loadNotes();
-            });
-
-            newDivTitleAndDate.appendChild(newPTitle);
-            newDivTitleAndDate.appendChild(newPDate);
-    
-            newUpDownRemove.appendChild(newUpButton);
-            newUpDownRemove.appendChild(newDownButton);
-            newUpDownRemove.appendChild(newRemoveButton);
-            
-            newDiv.appendChild(newDivTitleAndDate);
-            newDiv.appendChild(hr1);
-            newDiv.appendChild(newPTask);
-            newDiv.appendChild(hr2);
-            newDiv.appendChild(newUpDownRemove);
-    
-            body.insertBefore(newDiv, footer);
-        });
-    
-        const updatedArrayString = JSON.stringify(currentArray);
-    
-        localStorage.setItem('data', updatedArrayString);
-        
-        notesDiv = document.querySelectorAll('.notes');
-
-        editing = true;
 
     } else {
 
@@ -384,4 +287,107 @@ function loadNotes() {
     localStorage.setItem('data', updatedArrayString);
     
     notesDiv = document.querySelectorAll('.notes');
+}
+
+function loadEditNotes() {
+
+    notesDiv.forEach(function(element) {
+        element.remove();
+    });
+
+    const data = localStorage.getItem('data');
+    
+    const currentArray = JSON.parse(data);
+
+    currentArray.forEach((value, index) => {
+
+        const newDiv = document.createElement('div');
+        const newDivTitleAndDate = document.createElement('div');
+        const newPTitle = document.createElement('p');
+        const newPDate = document.createElement('p');
+        const newPTask = document.createElement('p');
+        const hr1 = document.createElement('hr');
+        const hr2 = document.createElement('hr');
+        const newUpDownRemove = document.createElement('div');
+        const newUpButton = document.createElement('button');
+        const newDownButton = document.createElement('button');
+        const newRemoveButton = document.createElement('button');
+        
+        newDiv.classList.add('notes');
+        newDivTitleAndDate.classList.add('notesTitleAndDate');
+        newUpDownRemove.classList.add('notesUpDownRemove');
+        newPTask.classList.add('notesTask');
+
+        newPTitle.textContent = value[0];
+        newPDate.textContent = value[1];
+        newPTask.textContent = value[2];
+
+        newUpButton.innerText = 'Up';
+        newDownButton.innerText = 'Down';
+        newRemoveButton.innerText = 'Remove';
+
+        newUpButton.setAttribute('id', 'newUpButton' + index);
+        newUpButton.setAttribute('class', 'upButton');
+
+        newDownButton.setAttribute('id', 'newDownButton' + index);
+        newDownButton.setAttribute('class', 'downButton');
+
+        newRemoveButton.setAttribute('id', 'newRemoveButton' + index);
+        newRemoveButton.setAttribute('class', 'removeButton');
+
+
+        // Up button
+
+        newUpButton.addEventListener('click', function() {
+            alert('Up Button clicked!');
+        });
+
+
+        // Down button
+
+        newDownButton.addEventListener('click', function() {
+            alert('Down Button clicked!');
+        });
+
+        
+        // Remove button
+
+        newRemoveButton.addEventListener('click', function() {
+
+            const data = localStorage.getItem('data');
+
+            const currentArray = JSON.parse(data);
+            
+            currentArray.splice(value, 1);
+
+            const updatedArrayString = JSON.stringify(currentArray);
+
+            localStorage.setItem('data', updatedArrayString);
+
+            loadNotes();
+        });
+
+        newDivTitleAndDate.appendChild(newPTitle);
+        newDivTitleAndDate.appendChild(newPDate);
+
+        newUpDownRemove.appendChild(newUpButton);
+        newUpDownRemove.appendChild(newDownButton);
+        newUpDownRemove.appendChild(newRemoveButton);
+        
+        newDiv.appendChild(newDivTitleAndDate);
+        newDiv.appendChild(hr1);
+        newDiv.appendChild(newPTask);
+        newDiv.appendChild(hr2);
+        newDiv.appendChild(newUpDownRemove);
+
+        body.insertBefore(newDiv, footer);
+    });
+
+    const updatedArrayString = JSON.stringify(currentArray);
+
+    localStorage.setItem('data', updatedArrayString);
+    
+    notesDiv = document.querySelectorAll('.notes');
+
+    editing = true;
 }
