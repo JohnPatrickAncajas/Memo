@@ -210,14 +210,18 @@ section li {
 }
 
 .notesTask {
-  margin-top: 1rem;
+  margin: 1rem 0;
 }
 
 .notesUpDownRemove {
-  width: 30%;
   display: flex;
-  justify-self: right;
-  justify-content: space-between;
+  padding-top: 1rem;
+  justify-content: right;
+  gap: 1rem;
+}
+
+.upButton, .downButton, .removeButton {
+  padding: 0.3rem;
 }
 
 /* Footer Styles */

@@ -201,12 +201,13 @@ notesEditButton.addEventListener('click', function() {
             const newPTitle = document.createElement('p');
             const newPDate = document.createElement('p');
             const newPTask = document.createElement('p');
-            const hr = document.createElement('hr');
+            const hr1 = document.createElement('hr');
+            const hr2 = document.createElement('hr');
             const newUpDownRemove = document.createElement('div');
             const newUpButton = document.createElement('button');
             const newDownButton = document.createElement('button');
             const newRemoveButton = document.createElement('button');
-    
+            
             newDiv.classList.add('notes');
             newDivTitleAndDate.classList.add('notesTitleAndDate');
             newUpDownRemove.classList.add('notesUpDownRemove');
@@ -249,8 +250,9 @@ notesEditButton.addEventListener('click', function() {
             newUpDownRemove.appendChild(newRemoveButton);
             
             newDiv.appendChild(newDivTitleAndDate);
-            newDiv.appendChild(hr);
+            newDiv.appendChild(hr1);
             newDiv.appendChild(newPTask);
+            newDiv.appendChild(hr2);
             newDiv.appendChild(newUpDownRemove);
     
             body.insertBefore(newDiv, footer);
@@ -266,46 +268,7 @@ notesEditButton.addEventListener('click', function() {
 
     } else {
 
-        notesDiv.forEach(function(element) {
-            element.remove();
-        });
-    
-        const data = localStorage.getItem('data');
-        
-        const currentArray = JSON.parse(data);
-    
-        currentArray.forEach(value => {
-    
-            const newDiv = document.createElement('div');
-            const newDivTitleAndDate = document.createElement('div');
-            const newPTitle = document.createElement('p');
-            const newPDate = document.createElement('p');
-            const newPTask = document.createElement('p');
-            const hr = document.createElement('hr');
-    
-            newDiv.classList.add('notes');
-            newDivTitleAndDate.classList.add('notesTitleAndDate');
-            newPTask.classList.add('notesTask');
-    
-            newPTitle.textContent = value[0];
-            newPDate.textContent = value[1];
-            newPTask.textContent = value[2];
-    
-            newDivTitleAndDate.appendChild(newPTitle);
-            newDivTitleAndDate.appendChild(newPDate);
-    
-            newDiv.appendChild(newDivTitleAndDate);
-            newDiv.appendChild(hr);
-            newDiv.appendChild(newPTask);
-    
-            body.insertBefore(newDiv, footer);
-        });
-    
-        const updatedArrayString = JSON.stringify(currentArray);
-    
-        localStorage.setItem('data', updatedArrayString);
-        
-        notesDiv = document.querySelectorAll('.notes');
+        loadNotes()
         
         editing = false;
 
@@ -355,3 +318,50 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('data', notesListString);
     }
 });
+
+
+// Functions 
+
+function loadNotes() {
+
+    notesDiv.forEach(function(element) {
+        element.remove();
+    });
+
+    const data = localStorage.getItem('data');
+    
+    const currentArray = JSON.parse(data);
+
+    currentArray.forEach(value => {
+
+        const newDiv = document.createElement('div');
+        const newDivTitleAndDate = document.createElement('div');
+        const newPTitle = document.createElement('p');
+        const newPDate = document.createElement('p');
+        const newPTask = document.createElement('p');
+        const hr = document.createElement('hr');
+
+        newDiv.classList.add('notes');
+        newDivTitleAndDate.classList.add('notesTitleAndDate');
+        newPTask.classList.add('notesTask');
+
+        newPTitle.textContent = value[0];
+        newPDate.textContent = value[1];
+        newPTask.textContent = value[2];
+
+        newDivTitleAndDate.appendChild(newPTitle);
+        newDivTitleAndDate.appendChild(newPDate);
+
+        newDiv.appendChild(newDivTitleAndDate);
+        newDiv.appendChild(hr);
+        newDiv.appendChild(newPTask);
+
+        body.insertBefore(newDiv, footer);
+    });
+
+    const updatedArrayString = JSON.stringify(currentArray);
+
+    localStorage.setItem('data', updatedArrayString);
+    
+    notesDiv = document.querySelectorAll('.notes');
+}
