@@ -62,6 +62,24 @@ buttonNotes.addEventListener('click', function() {
 
     if (isShownNotes == false) {
 
+        const startup = localStorage.getItem('startup');
+
+        if (startup == 'true') {
+
+            let notesList = [
+                ["Christmas", "December 25", "Celebrate the Christmas holidays and enjoy!"],
+                ["New Year", "January 1", "Have fun and celebrate the new year!"],
+                ["Valentine's Day", "February 14", "Share the love on this special day!"],
+                ["Death", "Soon", "Make each moment count."]
+            ];
+
+            localStorage.setItem('startup', 'false');
+
+            let notesListString = JSON.stringify(notesList);
+
+            localStorage.setItem('data', notesListString);
+        }
+
         // Notes click event if not already at Notes
 
         home.style.display = 'none';
@@ -219,26 +237,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize array of notes
 
-    const startup = localStorage.getItem('startup');
-
-    if (startup == 'true') {
-        localStorage.setItem('startup', 'false');
-    } else {
+    if (!localStorage.getItem('startup')) {
         localStorage.setItem('startup', 'true');
-    }
-
-    if (startup == 'true') {
-
-        let notesList = [
-            ["Christmas", "December 25", "Celebrate the Christmas holidays and enjoy!"],
-            ["New Year", "January 1", "Have fun and celebrate the new year!"],
-            ["Valentine's Day", "February 14", "Share the love on this special day!"],
-            ["Death", "Soon", "Make each moment count."]
-        ];
-
-        let notesListString = JSON.stringify(notesList);
-
-        localStorage.setItem('data', notesListString);
     }
 });
 
