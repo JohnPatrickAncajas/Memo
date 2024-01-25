@@ -339,7 +339,19 @@ function loadEditNotes() {
         // Up button
 
         newUpButton.addEventListener('click', function() {
-            alert('Up Button clicked!');
+            const data = localStorage.getItem('data');
+
+            const currentArray = JSON.parse(data);
+
+            if (index > 0) {
+                [currentArray[index], currentArray[index - 1]] = [currentArray[index - 1], currentArray[index]];
+            }
+
+            const updatedArrayString = JSON.stringify(currentArray);
+
+            localStorage.setItem('data', updatedArrayString);
+
+            loadEditNotes();
         });
 
 
