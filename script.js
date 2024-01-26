@@ -200,6 +200,16 @@ notesAddButton.addEventListener('click', function() {
 });
 
 
+notesClearButton.addEventListener('click', function() {
+
+    // Clear Notes button
+    
+    notesTitleInput.value = '';
+    notesDateInput.value = '';
+    notesTaskInput.value = '';
+});
+
+
 notesEditButton.addEventListener('click', function() {
 
     // Edit Notes button
