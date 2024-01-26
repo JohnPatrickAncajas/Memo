@@ -187,7 +187,9 @@ notesAddButton.addEventListener('click', function() {
             notesTitleInput.value = '';
             notesDateInput.value = '';
             notesTaskInput.value = '';
-
+            
+            editing = false;
+    
         } else {
 
             // Alert when Input is Incomplete
@@ -382,7 +384,7 @@ function loadEditNotes() {
 
             const currentArray = JSON.parse(data);
             
-            currentArray.splice(value, 1);
+            currentArray.splice(index, 1);
 
             const updatedArrayString = JSON.stringify(currentArray);
 
