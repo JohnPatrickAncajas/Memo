@@ -222,6 +222,13 @@ section li {
 
 .upButton, .downButton, .removeButton {
   padding: 0.3rem;
+  border-radius: 0.3rem;
+}
+
+.upButton:hover, .downButton:hover, .removeButton:hover {
+  border: 2px solid black;
+  background-color: #FFFFFF;
+  cursor: pointer;
 }
 
 /* Footer Styles */
