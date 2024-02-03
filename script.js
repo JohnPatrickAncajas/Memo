@@ -5,6 +5,7 @@ const footer = document.getElementById('footer');
 
 const home = document.getElementById('home');
 const notes = document.getElementById('notes');
+const user = document.getElementById('user');
 
 const buttonHome = document.getElementById('buttonHome');
 const buttonNotes = document.getElementById('buttonNotes');
@@ -65,23 +66,7 @@ buttonNotes.addEventListener('click', function() {
 
     if (isShownNotes == false) {
 
-        const startup = localStorage.getItem('startup');
-
-        if (startup == 'true') {
-
-            let notesList = [
-                ["Christmas", "December 25", "Celebrate the Christmas holidays and enjoy!"],
-                ["New Year", "January 1", "Have fun and celebrate the new year!"],
-                ["Valentine's Day", "February 14", "Share the love on this special day!"],
-                ["Death", "Soon", "Make each moment count."]
-            ];
-
-            localStorage.setItem('startup', 'false');
-
-            let notesListString = JSON.stringify(notesList);
-
-            localStorage.setItem('data', notesListString);
-        }
+    Startup();
 
         // Notes click event if not already at Notes
 
@@ -135,11 +120,25 @@ buttonNotes.addEventListener('click', function() {
 
 
 buttonUser.addEventListener('click', function() {
-    console.log('Now on User Menu!');
 
-    isShownHome = false;
-    isShownNotes = false;
-    isShownUser = true;
+    if (isShownUser == false) {
+
+        console.log('Now on User Menu!');
+
+        home.style.display = 'none';
+        notes.style.display = 'none';
+        user.style.display = 'block';
+
+        isShownHome = false;
+        isShownNotes = false;
+        isShownUser = true;
+
+    } else {
+
+        // Notes click event if already at Notes
+
+        console.log('Your at Notes already!');
+    }
 });
 
 
@@ -439,4 +438,25 @@ function loadEditNotes() {
     notesDiv = document.querySelectorAll('.notes');
 
     editing = true;
+}
+
+function Startup() {
+
+    const startup = localStorage.getItem('startup');
+
+    if (startup == 'true') {
+
+        let notesList = [
+            ["Christmas", "December 25", "Celebrate the Christmas holidays and enjoy!"],
+            ["New Year", "January 1", "Have fun and celebrate the new year!"],
+            ["Valentine's Day", "February 14", "Share the love on this special day!"],
+            ["Death", "Soon", "Make each moment count."]
+        ];
+
+        localStorage.setItem('startup', 'false');
+
+        let notesListString = JSON.stringify(notesList);
+
+        localStorage.setItem('data', notesListString);
+    }
 }
