@@ -66,7 +66,7 @@ buttonNotes.addEventListener('click', function() {
 
     if (isShownNotes == false) {
 
-    Startup();
+    checkStartup();
 
         // Notes click event if not already at Notes
 
@@ -121,6 +121,8 @@ buttonNotes.addEventListener('click', function() {
 
 buttonUser.addEventListener('click', function() {
 
+    // User button
+    
     if (isShownUser == false) {
 
         console.log('Now on User Menu!');
@@ -271,6 +273,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loadNotes() {
 
+    // Shows Notes
+
     notesDiv.forEach(function(element) {
         element.remove();
     });
@@ -313,7 +317,10 @@ function loadNotes() {
     notesDiv = document.querySelectorAll('.notes');
 }
 
+
 function loadEditNotes() {
+
+    // Shows Notes with Edit
 
     notesDiv.forEach(function(element) {
         element.remove();
@@ -440,9 +447,14 @@ function loadEditNotes() {
     editing = true;
 }
 
-function Startup() {
+
+// Checks if first launch of the page
+
+function checkStartup() {
 
     const startup = localStorage.getItem('startup');
+
+    // Initializes starter notes array
 
     if (startup == 'true') {
 
