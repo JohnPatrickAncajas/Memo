@@ -8,6 +8,7 @@ const notes = document.getElementById('notes');
 
 const buttonHome = document.getElementById('buttonHome');
 const buttonNotes = document.getElementById('buttonNotes');
+const buttonUser = document.getElementById('buttonUser');
 
 const notesTitleInput = document.getElementById('notesTitleInput');
 const notesDateInput = document.getElementById('notesDateInput');
@@ -24,6 +25,7 @@ const myNoteHeading = document.getElementById('myNoteHeading');
 
 let isShownHome = true;
 let isShownNotes = false;
+let isShownUser = false;
 
 let editing = false;
 
@@ -46,6 +48,7 @@ buttonHome.addEventListener('click', function() {
 
         isShownHome = true;
         isShownNotes = false;
+        isShownUser = false;
 
     } else {
 
@@ -118,8 +121,9 @@ buttonNotes.addEventListener('click', function() {
 
         notesDiv = document.querySelectorAll('.notes');
 
-        isShownNotes = true;
         isShownHome = false;
+        isShownNotes = true;
+        isShownUser = false;
         
     } else {
 
@@ -127,6 +131,15 @@ buttonNotes.addEventListener('click', function() {
 
         console.log('Your at Notes already!');
     }
+});
+
+
+buttonUser.addEventListener('click', function() {
+    console.log('Now on User Menu!');
+
+    isShownHome = false;
+    isShownNotes = false;
+    isShownUser = true;
 });
 
 
