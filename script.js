@@ -42,6 +42,7 @@ buttonHome.addEventListener('click', function() {
 
         home.style.display = 'block';
         notes.style.display = 'none';
+        user.style.display = 'none';
 
         notesDiv.forEach(function(element) {
             element.remove();
@@ -72,6 +73,7 @@ buttonNotes.addEventListener('click', function() {
 
         home.style.display = 'none';
         notes.style.display = 'block';
+        user.style.display = 'none';
 
         const data = localStorage.getItem('data');
 
@@ -124,9 +126,14 @@ buttonUser.addEventListener('click', function() {
     // User button
     
     if (isShownUser == false) {
+        
+        if (typeof notesDiv !== 'undefined') {
 
-        console.log('Now on User Menu!');
-
+            notesDiv.forEach(function(element) {
+                element.remove();
+            });
+        }
+        
         home.style.display = 'none';
         notes.style.display = 'none';
         user.style.display = 'block';
@@ -139,7 +146,7 @@ buttonUser.addEventListener('click', function() {
 
         // Notes click event if already at Notes
 
-        console.log('Your at Notes already!');
+        console.log('Your at User already!');
     }
 });
 

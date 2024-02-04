@@ -233,6 +233,14 @@ section li {
 
 /* Footer Styles */
 
+#user {
+  display: none;
+  margin: 5vh 5vw;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #EEEEEE;
+}
+
 footer {
   background-color: #EEEEEE;
   padding: 1rem 0;
