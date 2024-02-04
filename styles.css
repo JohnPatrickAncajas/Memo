@@ -235,6 +235,8 @@ section li {
 
 #user {
   display: none;
+  height: 80vh;
+  line-height: 2;
   margin: 5vh 5vw;
   padding: 1rem;
   border-radius: 1rem;
