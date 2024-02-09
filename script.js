@@ -44,9 +44,12 @@ buttonHome.addEventListener('click', function() {
         notes.style.display = 'none';
         user.style.display = 'none';
 
-        notesDiv.forEach(function(element) {
-            element.remove();
-        });
+        if (typeof notesDiv !== 'undefined') {
+
+            notesDiv.forEach(function(element) {
+                element.remove();
+            });
+        }  
 
         isShownHome = true;
         isShownNotes = false;
