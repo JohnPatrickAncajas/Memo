@@ -235,12 +235,36 @@ section li {
 
 #user {
   display: none;
-  height: 80vh;
   line-height: 2;
   margin: 5vh 5vw;
   padding: 1rem;
   border-radius: 1rem;
   background-color: #EEEEEE;
+}
+
+#theme {
+  margin-bottom: 2rem;
+}
+
+#time {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+#greeting {
+  margin-top: 2rem;
+  margin-bottom: 30vh;
+  text-align: center;
+}
+
+#reset {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+#reset button {
+  padding: 0.5rem;
+  border-radius: 0.4rem;
 }
 
 footer {
