@@ -242,6 +242,10 @@ section li {
   background-color: #EEEEEE;
 }
 
+#usernameEdit {
+  display: none;
+}
+
 #theme {
   margin-bottom: 2rem;
 }
@@ -257,14 +261,19 @@ section li {
   text-align: center;
 }
 
-#reset {
+#userButtons {
   margin-top: 2rem;
   text-align: center;
 }
 
-#reset button {
+#userButtons button {
   padding: 0.5rem;
   border-radius: 0.4rem;
+}
+
+#userButtons button:hover {
+  background-color: #FFFFFF;
+  cursor: pointer;
 }
 
 footer {
