@@ -22,6 +22,8 @@ const notesEditButton = document.getElementById('notesEditButton');
 const addNoteHeading = document.getElementById('addNoteHeading');
 const myNoteHeading = document.getElementById('myNoteHeading');
 
+const resetButton = document.getElementById('resetButton');
+
 // Value declarations LET
 
 let isShownHome = true;
@@ -252,6 +254,19 @@ notesEditButton.addEventListener('click', function() {
     }
 });
 
+resetButton.addEventListener('click', function() {
+
+    let notesList = [
+        ["Christmas", "December 25", "Celebrate the Christmas holidays and enjoy!"],
+        ["New Year", "January 1", "Have fun and celebrate the new year!"],
+        ["Valentine's Day", "February 14", "Share the love on this special day!"],
+        ["Death", "Soon", "Make each moment count."]
+    ];
+
+    let notesListString = JSON.stringify(notesList);
+
+    localStorage.setItem('data', notesListString);
+});
 
 
 // Event listeners ONLOAD
