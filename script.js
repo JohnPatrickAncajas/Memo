@@ -29,7 +29,7 @@ const usernameEditSubmit = document.getElementById('usernameEditSubmit');
 
 const resetButton = document.getElementById('resetButton');
 
-// Value declarations LET
+// Boolean declarations LET
 
 let isShownHome = true;
 let isShownNotes = false;
@@ -38,6 +38,11 @@ let isShownUser = false;
 let editing = false;
 
 let changingUsername = false;
+
+// Value declaraions LET
+
+let usernameEditInputValue = '';
+
 
 // Event listeners ONCLICK
 
@@ -291,6 +296,20 @@ changeUsername.addEventListener('click', function() {
         
         changingUsername = false;
     }
+});
+
+usernameEditSubmit.addEventListener('click', function() {
+
+    const usernameEditInputValue = usernameEditInput.value;
+
+    localStorage.setItem('username', usernameEditInputValue);
+
+    username.innerText = "Name: " + usernameEditInputValue;
+
+    username.style.display = 'block';
+    usernameEdit.style.display = 'none';
+        
+    changingUsername = false;
 });
 
 
