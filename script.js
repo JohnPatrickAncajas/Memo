@@ -24,6 +24,7 @@ const myNoteHeading = document.getElementById('myNoteHeading');
 
 const username = document.getElementById('username');
 const usernameEdit = document.getElementById('usernameEdit');
+const usernameEditInput = document.getElementById('usernameEditInput');
 const usernameEditSubmit = document.getElementById('usernameEditSubmit');
 
 const resetButton = document.getElementById('resetButton');
@@ -35,6 +36,8 @@ let isShownNotes = false;
 let isShownUser = false;
 
 let editing = false;
+
+let changingUsername = false;
 
 // Event listeners ONCLICK
 
@@ -274,9 +277,20 @@ resetButton.addEventListener('click', function() {
 
 changeUsername.addEventListener('click', function() {
     
-    username.style.display = 'none';
-    usernameEdit.style.display = 'block';
+    if (changingUsername == false) {
+     
+        username.style.display = 'none';
+        usernameEdit.style.display = 'block';   
+    
+        changingUsername = true;
 
+    } else { 
+
+        username.style.display = 'block';
+        usernameEdit.style.display = 'none';
+        
+        changingUsername = false;
+    }
 });
 
 

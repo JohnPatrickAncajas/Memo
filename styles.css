@@ -271,9 +271,14 @@ section li {
   border-radius: 0.4rem;
 }
 
-#userButtons button:hover {
+#userButtons button:hover, #usernameEditSubmit:hover {
   background-color: #FFFFFF;
   cursor: pointer;
+}
+
+#usernameEditInput, #usernameEditSubmit {
+  padding: 0.2rem;
+  border-radius: 0.2rem;
 }
 
 footer {
