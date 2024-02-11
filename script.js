@@ -22,6 +22,10 @@ const notesEditButton = document.getElementById('notesEditButton');
 const addNoteHeading = document.getElementById('addNoteHeading');
 const myNoteHeading = document.getElementById('myNoteHeading');
 
+const username = document.getElementById('username');
+const usernameEdit = document.getElementById('usernameEdit');
+const usernameEditSubmit = document.getElementById('usernameEditSubmit');
+
 const resetButton = document.getElementById('resetButton');
 
 // Value declarations LET
@@ -266,6 +270,13 @@ resetButton.addEventListener('click', function() {
     let notesListString = JSON.stringify(notesList);
 
     localStorage.setItem('data', notesListString);
+});
+
+changeUsername.addEventListener('click', function() {
+    
+    username.style.display = 'none';
+    usernameEdit.style.display = 'block';
+
 });
 
 
