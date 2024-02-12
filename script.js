@@ -27,6 +27,7 @@ const usernameEdit = document.getElementById('usernameEdit');
 const usernameEditInput = document.getElementById('usernameEditInput');
 const usernameEditSubmit = document.getElementById('usernameEditSubmit');
 
+const changeUsername = document.getElementById('changeUsername');
 const resetButton = document.getElementById('resetButton');
 
 // Boolean declarations LET
@@ -439,6 +440,7 @@ function loadEditNotes() {
         // Up button
 
         newUpButton.addEventListener('click', function() {
+
             const data = localStorage.getItem('data');
 
             const currentArray = JSON.parse(data);
