@@ -23,6 +23,7 @@ const addNoteHeading = document.getElementById('addNoteHeading');
 const myNoteHeading = document.getElementById('myNoteHeading');
 
 const username = document.getElementById('username');
+const usernameOutput = document.getElementById('usernameOutput');
 const usernameEdit = document.getElementById('usernameEdit');
 const usernameEditInput = document.getElementById('usernameEditInput');
 const usernameEditSubmit = document.getElementById('usernameEditSubmit');
@@ -42,6 +43,7 @@ let changingUsername = false;
 
 // Value declaraions LET
 
+let usernameOutputText = '';
 let usernameEditInputValue = '';
 
 
@@ -335,6 +337,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!localStorage.getItem('startup')) {
         localStorage.setItem('startup', 'true');
+    }
+
+    if (!localStorage.getItem('username')) {
+        localStorage.setItem('username', 'User');
+    } else {
+        usernameOutputText = localStorage.getItem('username');
+        usernameOutput.innerText = usernameOutputText;
     }
 });
 
