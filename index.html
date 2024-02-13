@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="icon" href="assets/Logo.png" type="image/png">
     <script defer type="text/javascript" src="script.js"></script>
+    <script defer type="text/javascript" src="timestamp.js"></script>
 </head>      
 <body>
 
@@ -111,8 +112,8 @@
         <p id="theme">Theme: Light</p>
         <hr>
         
-        <p id="time">Good day, User! It is Time at Month Day Year.</p>
-        <p id="greeting">Have a Good Day!</p>
+        <p id="time">Good day, User! It is <span id="currentTime"></span> at <span id="currentMonth"></span> <span id="currentDay"></span> <span id="currentYear"></span>.</p>
+        <p id="greeting">Have a Good <span id="currentPeriod"></span>!</p>
         <hr>
 
         <p id="userButtons">
