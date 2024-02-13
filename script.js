@@ -281,6 +281,9 @@ resetButton.addEventListener('click', function() {
     let notesListString = JSON.stringify(notesList);
 
     localStorage.setItem('data', notesListString);
+    localStorage.setItem('username', 'User');
+
+    usernameOutput.innerText = "User";
 });
 
 changeUsername.addEventListener('click', function() {
@@ -307,7 +310,7 @@ usernameEditSubmit.addEventListener('click', function() {
 
     localStorage.setItem('username', usernameEditInputValue);
 
-    username.innerText = "Name: " + usernameEditInputValue;
+    usernameOutput.innerText = usernameEditInputValue;
 
     username.style.display = 'block';
     usernameEdit.style.display = 'none';
