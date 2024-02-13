@@ -1,11 +1,10 @@
 // Element declarations CONST
 
 let currentTime = document.getElementById('currentTime');
-let currentMonth = document.getElementById('currentMonth');
-let currentDay = document.getElementById('currentDay');
-let currentYear = document.getElementById('currentYear');
+let currentDate = document.getElementById('currentDate');
 let currentPeriod = document.getElementById('currentPeriod');
 
+let quote = document.getElementById('quote');
 
 // Functions
 
@@ -23,8 +22,7 @@ function updateTimestamp() {
     const hoursValue = (HOURS % 12) || 12;
     const dayPeriod = HOURS < 12 ? "AM" : "PM";
 
-    const timeElement = document.getElementById("time");
-    timeElement.innerHTML = `<hr>${hoursValue}:${MINUTES}:${SECONDS} ${dayPeriod}<br>${DATE}/${MONTH}/${YEAR}<br><hr>`;
+    currentTime.innerText = `${hoursValue}:${MINUTES}:${SECONDS} ${dayPeriod}`;
 
     // This part controls the quotes every hour
 
@@ -55,49 +53,21 @@ function updateTimestamp() {
         [23, "In the stillness of night, introspection and wonder reside."]
     ]);
     
-    const quote = quotesMap.get(HOURS) || "Invalid hour";
-    const quoteElement = document.querySelector("#quote");
-    quoteElement.innerHTML = `"${quote}"`;
+    const quoteText = quotesMap.get(HOURS) || "Invalid hour";
+    
+    quote.innerText = quoteText;
 
     // Controls the theme that depends on the period of day
-
-    const bodySheet = document.querySelector("body");
-    const quoteSheet = document.querySelector("#quote");
-    const greetingSheet = document.querySelector("#greeting");
-
-    function applyMorningTheme() {
-        bodySheet.style.backgroundImage = "linear-gradient(315deg, #F8FFAE, #43C6AC)";
-        bodySheet.style.color = "#1f1f1f";
-        quoteSheet.style.color = "#333";
-        greetingSheet.style.color = "#333";
-    }
-
-    function applyAfternoonTheme() {
-        bodySheet.style.backgroundImage = "linear-gradient(315deg, #e1eec3, #f05053)";
-        bodySheet.style.color = "#1f1f1f";
-        quoteSheet.style.color = "#333";
-        greetingSheet.style.color = "#333";
-    }
-
-    function applyEveningTheme() {
-        bodySheet.style.backgroundImage = "linear-gradient(315deg, #2C5364, #203A43, #0F2027)";
-        bodySheet.style.color = "#f0f0f0";
-        quoteSheet.style.color = "#e2e2e2ea";
-        greetingSheet.style.color = "#e2e2e2ea";
-    }
 
     let greetingPeriod = "evening";
 
     if (HOURS >= 0 && HOURS < 6) {
-        applyEveningTheme();
     } else if (HOURS >= 6 && HOURS < 12) {
-        applyMorningTheme();
         greetingPeriod = "morning";
     } else if (HOURS >= 12 && HOURS < 18) {
-        applyAfternoonTheme();
         greetingPeriod = "afternoon";
     } else if (HOURS >= 18 && HOURS < 24) {
-        applyEveningTheme();
+        greetingPeriod = "evening";
     }
 
     // Handles the greeting
@@ -146,8 +116,9 @@ function updateTimestamp() {
         lastDigitType = "th";
     }
 
-    const greetingElement = document.getElementById("greeting");
-    greetingElement.innerHTML = `Good ${greetingPeriod}! Today is ${datePeriod} in the ${DATE}${lastDigitType} of ${monthPeriod}, ${YEAR}!`;
+    currentPeriod.innerText = `${greetingPeriod}`;
+
+    currentDate.innerText = `${DATE}${lastDigitType} of ${monthPeriod}, ${YEAR}`;
 }
 
 setInterval(updateTimestamp, 1000);
