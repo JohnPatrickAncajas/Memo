@@ -1,5 +1,6 @@
 // Element declarations CONST
 
+let currentWeekday = document.getElementById('currentWeekday');
 let currentTime = document.getElementById('currentTime');
 let currentDate = document.getElementById('currentDate');
 let currentPeriod = document.getElementById('currentPeriod');
@@ -82,7 +83,9 @@ function updateTimestamp() {
         [6, "Saturday"]
     ]);
 
-    const datePeriod = dayMap.get(DAY) || "Invalid day";
+    const weekday = dayMap.get(DAY) || "Invalid day";
+
+    currentWeekday.innerText = `${weekday}`;
 
     const monthMap = new Map([
         [0, "January"],
