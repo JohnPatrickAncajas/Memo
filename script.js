@@ -284,6 +284,11 @@ resetButton.addEventListener('click', function() {
     localStorage.setItem('username', 'User');
 
     usernameOutput.innerText = "User";
+
+    username.style.display = 'block';
+    usernameEdit.style.display = 'none';
+        
+    changingUsername = false;
 });
 
 changeUsername.addEventListener('click', function() {
