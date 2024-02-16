@@ -7,6 +7,19 @@ body, div, section, button {
     color: #FFFFFF;
 }
 
-nav, footer, h3, .notes, .notesHeading, .notesTitleAndDate, #user, #usernameEdit, input, textarea {
+button {
+    border: 0.1em white solid;
+}
+
+nav, footer, h3, .notes, .notesHeading, .notesTitleAndDate, #notesOptions button, #user, #usernameEdit, input, textarea {
+    background-color: #000000;
+}
+
+#notesOptions button:hover {
+    background-color: #222222;
+    border: 0.1em white solid;
+}
+
+#userButtons button:hover {
     background-color: #000000;
 }
