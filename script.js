@@ -41,6 +41,7 @@ let isShownUser = false;
 let editing = false;
 
 let changingUsername = false;
+let changingTheme = false;
 
 // Value declaraions LET
 
@@ -313,10 +314,23 @@ changeUsername.addEventListener('click', function() {
 });
 
 changeTheme.addEventListener('click', function() {
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'theme.css';
-    document.head.appendChild(link);
+
+    if (changingTheme == false) {
+
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'theme.css';
+        document.head.appendChild(link);
+
+        changingTheme = true;
+
+    } else {
+
+        var link = document.querySelector('link[href="theme.css"]');
+        link.remove();
+
+        changingTheme = false;
+    }
 });
 
 usernameEditSubmit.addEventListener('click', function() {
