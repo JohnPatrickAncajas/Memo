@@ -1,26 +1,12 @@
-
 img {
     filter: invert(100%);
-  }
-  
-  body {
+}
+
+body, div, section, button {
     background-color: #222222;
     color: #FFFFFF;
-  }
-  
-  nav, footer {
+}
+
+nav, footer, h3, .notes, .notesHeading, .notesTitleAndDate, #user, #usernameEdit, input, textarea {
     background-color: #000000;
-  }
-  
-  div{
-    background-color: #222222 !important;
-  }
-  
-  h3, .notes, .notesHeading,.notesTitleAndDate, #user, input, textarea{
-    background-color: #000000 !important;
-  }
-  
-  section, button{
-    background-color: #222222 !important;
-    color: #FFFFFF;
-  }
+}
