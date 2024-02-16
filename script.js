@@ -29,6 +29,7 @@ const usernameEditInput = document.getElementById('usernameEditInput');
 const usernameEditSubmit = document.getElementById('usernameEditSubmit');
 
 const changeUsername = document.getElementById('changeUsername');
+const changeTheme = document.getElementById('changeTheme');
 const resetButton = document.getElementById('resetButton');
 
 // Boolean declarations LET
@@ -269,6 +270,8 @@ notesEditButton.addEventListener('click', function() {
     }
 });
 
+// User page button event listeners
+
 resetButton.addEventListener('click', function() {
 
     let notesList = [
@@ -307,6 +310,13 @@ changeUsername.addEventListener('click', function() {
         
         changingUsername = false;
     }
+});
+
+changeTheme.addEventListener('click', function() {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'theme.css';
+    document.head.appendChild(link);
 });
 
 usernameEditSubmit.addEventListener('click', function() {
