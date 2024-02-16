@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   background-color: #FFFFFF;
   font-family: 'Lucida Console', Monaco, monospace;
@@ -339,4 +343,20 @@ footer {
   body {
     font-size: 24px;
   }
+}
+
+::-webkit-scrollbar {
+  width: 0.6em;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
