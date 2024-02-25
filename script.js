@@ -30,6 +30,7 @@ const usernameEditSubmit = document.getElementById('usernameEditSubmit');
 
 const changeUsername = document.getElementById('changeUsername');
 const changeTheme = document.getElementById('changeTheme');
+const currentThemeText = document.getElementById('currentThemeText');
 const resetButton = document.getElementById('resetButton');
 
 // Boolean declarations LET
@@ -317,6 +318,7 @@ changeTheme.addEventListener('click', function() {
 
     if (changingTheme == false) {
 
+        currentThemeText.innerText = 'Dark';
         var link = document.createElement('link');
         link.rel = 'stylesheet';
         link.href = 'theme.css';
@@ -325,6 +327,8 @@ changeTheme.addEventListener('click', function() {
         changingTheme = true;
 
     } else {
+
+        currentThemeText.innerText = 'Light';
 
         var link = document.querySelector('link[href="theme.css"]');
         link.remove();
