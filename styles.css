@@ -215,6 +215,9 @@ section li {
 
 .notesTask {
   margin: 1rem 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .notesUpDownRemove {
