@@ -70,11 +70,11 @@
         <div id="notesData">
             <p id="notesTitle">
                 <label for="notesTitleInput">Title:</label>
-                <input type="text" id="notesTitleInput" placeholder="Title">
+                <input type="text" id="notesTitleInput" maxlength="10" oninput="checkLength(this)" placeholder="Title">
             </p>
             <p id="notesDate">
                 <label for="notesDateInput">Date:</label>
-                <input type="text" id="notesDateInput" placeholder="Date">
+                <input type="text" id="notesDateInput" maxlength="10" oninput="checkLength(this)" placeholder="Date">
             </p>
             <p id="notesTask">
                 <label for="notesTaskInput">Task:</label>

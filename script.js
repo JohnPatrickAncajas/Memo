@@ -588,3 +588,9 @@ function checkStartup() {
         localStorage.setItem('data', notesListString);
     }
 }
+
+function checkLength(input) {
+    if (input.value.length >= input.maxLength) {
+      alert('You have reached the maximum length of ' + input.maxLength + ' characters.');
+    }
+}
