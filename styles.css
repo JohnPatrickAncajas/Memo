@@ -329,7 +329,11 @@ footer {
   }
 } 
 
- @media (min-width: 768px) {
+#credits a, footer a{
+  color: #000000;
+}
+
+@media (min-width: 768px) {
   body {
     font-size: 20px;
   }
