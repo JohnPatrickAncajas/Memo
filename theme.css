@@ -23,3 +23,7 @@ nav, footer, h3, .notes, .notesHeading, .notesTitleAndDate, #notesOptions button
 #userButtons button:hover {
     background-color: #000000;
 }
+
+input, textarea {
+    color: #FFFFFF;
+}
