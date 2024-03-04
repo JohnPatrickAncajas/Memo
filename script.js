@@ -315,26 +315,7 @@ changeUsername.addEventListener('click', function() {
 });
 
 changeTheme.addEventListener('click', function() {
-
-    if (changingTheme == false) {
-
-        currentThemeText.innerText = 'Dark';
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = 'theme.css';
-        document.head.appendChild(link);
-
-        changingTheme = true;
-
-    } else {
-
-        currentThemeText.innerText = 'Light';
-
-        var link = document.querySelector('link[href="theme.css"]');
-        link.remove();
-
-        changingTheme = false;
-    }
+    changeToDarkTheme();
 });
 
 usernameEditSubmit.addEventListener('click', function() {
@@ -372,7 +353,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize array of notes
 
     if (!localStorage.getItem('startup')) {
-        localStorage.setItem('startup', 'true');
+        localStorage.setItem('startup', 'false');
     }
 
     if (!localStorage.getItem('username')) {
@@ -381,6 +362,8 @@ document.addEventListener('DOMContentLoaded', function() {
         usernameOutputText = localStorage.getItem('username');
         usernameOutput.innerText = usernameOutputText;
     }
+
+    changeToDarkTheme();
 });
 
 
@@ -592,5 +575,36 @@ function checkStartup() {
 function checkLength(input) {
     if (input.value.length >= input.maxLength) {
       alert('You have reached the maximum length of ' + input.maxLength + ' characters.');
+    }
+}
+
+function changeToDarkTheme() {
+
+    if (!localStorage.getItem('darkTheme')) {
+        
+        localStorage.setItem('darkTheme', 'false');
+
+    } else {
+        const isDarkTheme = localStorage.getItem('darkTheme');
+
+        if (isDarkTheme == 'false') {
+    
+            currentThemeText.innerText = 'Dark';
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'theme.css';
+            document.head.appendChild(link);
+    
+            localStorage.setItem('darkTheme', 'true');
+    
+        } else {
+    
+            currentThemeText.innerText = 'Light';
+    
+            var link = document.querySelector('link[href="theme.css"]');
+            link.remove();
+    
+            localStorage.setItem('darkTheme', 'false');
+        }
     }
 }
