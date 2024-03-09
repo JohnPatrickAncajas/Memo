@@ -44,8 +44,6 @@ let editing = false;
 let changingUsername = false;
 let changingTheme = false;
 
-let darkTheme = false;
-
 // Value declaraions LET
 
 let usernameOutputText = '';
@@ -317,8 +315,28 @@ changeUsername.addEventListener('click', function() {
 });
 
 changeTheme.addEventListener('click', function() {
+  
+    let theme = localStorage.getItem('theme');
 
-    
+    if (theme == 'light') {
+
+        currentThemeText.innerText = 'Dark';
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'theme.css';
+        document.head.appendChild(link);
+
+        localStorage.setItem('theme', 'dark');
+
+    } else {
+
+        currentThemeText.innerText = 'Light';
+
+        var link = document.querySelector('link[href="theme.css"]');
+        link.remove();
+
+        localStorage.setItem('theme', 'light');
+    }
 });
 
 usernameEditSubmit.addEventListener('click', function() {
@@ -366,7 +384,20 @@ document.addEventListener('DOMContentLoaded', function() {
         usernameOutput.innerText = usernameOutputText;
     }
 
-    changeToDarkTheme();
+    if (!localStorage.getItem('theme')) {
+        localStorage.setItem('theme', 'light');
+    }
+    
+    let theme = localStorage.getItem('theme');
+
+    if (theme == 'dark') {
+
+        currentThemeText.innerText = 'Dark';
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'theme.css';
+        document.head.appendChild(link);
+    }
 });
 
 
