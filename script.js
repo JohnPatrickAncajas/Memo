@@ -44,6 +44,8 @@ let editing = false;
 let changingUsername = false;
 let changingTheme = false;
 
+let darkTheme = false;
+
 // Value declaraions LET
 
 let usernameOutputText = '';
@@ -315,7 +317,8 @@ changeUsername.addEventListener('click', function() {
 });
 
 changeTheme.addEventListener('click', function() {
-    changeToDarkTheme();
+
+    
 });
 
 usernameEditSubmit.addEventListener('click', function() {
@@ -575,36 +578,5 @@ function checkStartup() {
 function checkLength(input) {
     if (input.value.length >= input.maxLength) {
       alert('You have reached the maximum length of ' + input.maxLength + ' characters.');
-    }
-}
-
-function changeToDarkTheme() {
-
-    if (!localStorage.getItem('darkTheme')) {
-        
-        localStorage.setItem('darkTheme', 'false');
-
-    } else {
-        const isDarkTheme = localStorage.getItem('darkTheme');
-
-        if (isDarkTheme == 'false') {
-    
-            currentThemeText.innerText = 'Dark';
-            var link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = 'theme.css';
-            document.head.appendChild(link);
-    
-            localStorage.setItem('darkTheme', 'true');
-    
-        } else {
-    
-            currentThemeText.innerText = 'Light';
-    
-            var link = document.querySelector('link[href="theme.css"]');
-            link.remove();
-    
-            localStorage.setItem('darkTheme', 'false');
-        }
     }
 }
