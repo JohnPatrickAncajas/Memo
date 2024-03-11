@@ -552,7 +552,7 @@ function loadEditNotes() {
 
             localStorage.setItem('data', updatedArrayString);
 
-            loadNotes();
+            loadEditNotes();
         });
 
         newDivTitleAndDate.appendChild(newPTitle);
@@ -589,7 +589,7 @@ function checkStartup() {
 
     // Initializes starter notes array
 
-    if (startup == 'true') {
+    if (startup == 'false') {
 
         let notesList = [
             ["Christmas", "December 25", "Celebrate the Christmas holidays and enjoy!"],
@@ -598,7 +598,7 @@ function checkStartup() {
             ["Death", "Soon", "Make each moment count."]
         ];
 
-        localStorage.setItem('startup', 'false');
+        localStorage.setItem('startup', 'true');
 
         let notesListString = JSON.stringify(notesList);
 
