@@ -27,3 +27,19 @@ nav, footer, h3, .notes, .notesHeading, .notesTitleAndDate, #notesOptions button
 input, textarea {
     color: #FFFFFF;
 }
+
+::-webkit-scrollbar {
+    width: 0.6em;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #222222;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #111111;
+  }
