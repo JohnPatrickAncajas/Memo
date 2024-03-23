@@ -28,6 +28,7 @@ nav, footer, h3, .notes, .notesHeading, .notesTitleAndDate, #notesOptions button
     padding: 0.5rem;
     background-color:#222222;
     border-radius: 0.5rem;
+    border: 1px solid #ffffff;
     transition: all 0.3s;
 }
   
@@ -39,6 +40,7 @@ nav, footer, h3, .notes, .notesHeading, .notesTitleAndDate, #notesOptions button
 
 .upButton, .downButton, .removeButton {
     border: 1px solid #ffffff;
+    background-color: #222222;
 }
 
 .upButton:hover, .downButton:hover, .removeButton:hover {
@@ -46,7 +48,7 @@ nav, footer, h3, .notes, .notesHeading, .notesTitleAndDate, #notesOptions button
     background-color: #000000;
 }
 
-input, textarea {
+input, textarea, #credits a, footer a {
     color: #FFFFFF;
 }
 
