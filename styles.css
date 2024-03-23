@@ -188,14 +188,14 @@ section li {
 
 #notesOptions button {
   padding: 0.5rem;
-  background-color: #EEEEEE;
+  background-color: #ffffff;
   border-radius: 0.5rem;
+  border: 1px solid #000000;
   transition: all 0.3s;
 }
 
 #notesOptions button:hover {
-  border: 2px solid black;
-  background-color: #FFFFFF;
+  background-color: #EEEEEE;
   cursor: pointer;
 }
 
@@ -227,13 +227,15 @@ section li {
 }
 
 .upButton, .downButton, .removeButton {
+  border: 1px solid black;
   padding: 0.3rem;
   border-radius: 0.3rem;
+  background-color: #ffffff;
 }
 
 .upButton:hover, .downButton:hover, .removeButton:hover {
-  border: 2px solid black;
-  background-color: #FFFFFF;
+  border: 1px solid black;
+  background-color: #EEEEEE;
   cursor: pointer;
 }
 

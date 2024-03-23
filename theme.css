@@ -11,7 +11,7 @@ button {
     border: 0.1em white solid;
 }
 
-nav, footer, h3, .notes, .notesHeading, .notesTitleAndDate, #notesOptions button, #user, #usernameEdit, input, textarea {
+nav, footer, h3, .notes, .notesHeading, .notesTitleAndDate, #notesOptions button, #user, #usernameEdit, input, textarea, .notesUpDownRemove {
     background-color: #000000;
 }
 
@@ -21,6 +21,28 @@ nav, footer, h3, .notes, .notesHeading, .notesTitleAndDate, #notesOptions button
 }
 
 #userButtons button:hover {
+    background-color: #000000;
+}
+
+#notesOptions button {
+    padding: 0.5rem;
+    background-color:#222222;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+}
+  
+#notesOptions button:hover {
+    border: 1px solid #ffffff;
+    background-color: #000000;
+    cursor: pointer;
+}
+
+.upButton, .downButton, .removeButton {
+    border: 1px solid #ffffff;
+}
+
+.upButton:hover, .downButton:hover, .removeButton:hover {
+    border: 1px solid #ffffff;
     background-color: #000000;
 }
 
