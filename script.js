@@ -21,6 +21,7 @@ const notesEditButton = document.getElementById('notesEditButton');
 
 const addNoteHeading = document.getElementById('addNoteHeading');
 const myNoteHeading = document.getElementById('myNoteHeading');
+const noNotesHeading = document.getElementById('noNotesHeading');
 
 const username = document.getElementById('username');
 const usernameOutput = document.getElementById('usernameOutput');
@@ -101,6 +102,10 @@ buttonNotes.addEventListener('click', function() {
         const data = localStorage.getItem('data');
 
         const currentArray = JSON.parse(data);
+
+        if (currentArray.length == 0) {
+            noNotesHeading.style.display = "block";
+        }
 
         currentArray.forEach(value => {
 
@@ -414,6 +419,10 @@ function loadNotes() {
     const data = localStorage.getItem('data');
     
     const currentArray = JSON.parse(data);
+
+    if (currentArray.length == 0) {
+        noNotesHeading.style.display = "block";
+    }
 
     currentArray.forEach(value => {
 

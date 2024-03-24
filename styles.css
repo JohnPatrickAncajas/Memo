@@ -134,6 +134,11 @@ section li {
   text-align: center;
 }
 
+#noNotesHeading {
+  display: none;
+  margin: 1.5em;
+}
+
 #notesData {
   display: grid;
   grid-gap: 1rem;
@@ -270,7 +275,7 @@ section li {
 }
 
 #userButtons {
-  margin-top: 2rem;
+  margin-top: 1rem;
   text-align: center;
 }
 
@@ -284,9 +289,17 @@ section li {
   cursor: pointer;
 }
 
+#usernameEditInput {
+  width: 8rem;
+}
+
 #usernameEditInput, #usernameEditSubmit {
   padding: 0.2rem;
   border-radius: 0.2rem;
+}
+
+#resetButton {
+  margin-top: 0.5rem;
 }
 
 footer {
@@ -338,6 +351,10 @@ footer {
 @media (min-width: 768px) {
   body {
     font-size: 20px;
+  }
+
+  #resetButton {
+    margin-top: 0;
   }
 }
 
