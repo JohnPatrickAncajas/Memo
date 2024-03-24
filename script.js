@@ -103,9 +103,7 @@ buttonNotes.addEventListener('click', function() {
 
         const currentArray = JSON.parse(data);
 
-        if (currentArray.length == 0) {
-            noNotesHeading.style.display = "block";
-        }
+        checkNoNotes(currentArray);
 
         currentArray.forEach(value => {
 
@@ -200,6 +198,8 @@ notesAddButton.addEventListener('click', function() {
             const currentArray = JSON.parse(data);
     
             currentArray.push([notesTitleInputValue, notesDateInputValue, notesTaskInputValue]);
+
+            checkNoNotes(currentArray);
     
             currentArray.forEach(value => {
     
@@ -420,9 +420,7 @@ function loadNotes() {
     
     const currentArray = JSON.parse(data);
 
-    if (currentArray.length == 0) {
-        noNotesHeading.style.display = "block";
-    }
+    checkNoNotes(currentArray);
 
     currentArray.forEach(value => {
 
@@ -470,6 +468,8 @@ function loadEditNotes() {
     const data = localStorage.getItem('data');
     
     const currentArray = JSON.parse(data);
+
+    checkNoNotes(currentArray);
 
     currentArray.forEach((value, index) => {
 
@@ -618,5 +618,13 @@ function checkStartup() {
 function checkLength(input) {
     if (input.value.length >= input.maxLength) {
       alert('You have reached the maximum length of ' + input.maxLength + ' characters.');
+    }
+}
+
+function checkNoNotes(currentArray) {
+    if (currentArray.length == 0) {
+        noNotesHeading.style.display = "block";
+    } else {
+        noNotesHeading.style.display = "none";
     }
 }
