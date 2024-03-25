@@ -303,6 +303,7 @@ section li {
 }
 
 footer {
+  margin-bottom: 0;
   background-color: #EEEEEE;
   padding: 1rem 0;
   text-align: center;

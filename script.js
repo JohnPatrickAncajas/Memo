@@ -76,6 +76,8 @@ buttonHome.addEventListener('click', function() {
         isShownNotes = false;
         isShownUser = false;
 
+        footerAddMarginTop();
+
     } else {
 
         // Home click event if already at Home
@@ -138,6 +140,8 @@ buttonNotes.addEventListener('click', function() {
         isShownNotes = true;
         isShownUser = false;
         
+        footerAddMarginTop();
+
     } else {
 
         // Notes click event if already at Notes
@@ -167,6 +171,8 @@ buttonUser.addEventListener('click', function() {
         isShownHome = false;
         isShownNotes = false;
         isShownUser = true;
+
+        footerAddMarginTop();
 
     } else {
 
@@ -239,6 +245,8 @@ notesAddButton.addEventListener('click', function() {
             
             editing = false;
     
+            footerAddMarginTop();
+
         } else {
 
             // Alert when Input is Incomplete
@@ -626,5 +634,21 @@ function checkNoNotes(currentArray) {
         noNotesHeading.style.display = "block";
     } else {
         noNotesHeading.style.display = "none";
+    }
+}
+
+function footerAddMarginTop() {
+
+    footer.style.marginTop = '0px';
+
+    let footerRectangle = footer.getBoundingClientRect();
+
+    let footerRectangleDistanceFromBottom = window.innerHeight - footerRectangle.bottom;
+
+    if (footerRectangleDistanceFromBottom > 0) {
+
+        let currentMarginTop = parseInt(window.getComputedStyle(footer).marginTop, 10);
+
+        footer.style.marginTop = (currentMarginTop + footerRectangleDistanceFromBottom) + 'px';
     }
 }
