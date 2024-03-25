@@ -595,6 +595,8 @@ function loadEditNotes() {
     notesDiv = document.querySelectorAll('.notes');
 
     editing = true;
+
+    footerAddMarginTop();
 }
 
 
@@ -649,6 +651,6 @@ function footerAddMarginTop() {
 
         let currentMarginTop = parseInt(window.getComputedStyle(footer).marginTop, 10);
 
-        footer.style.marginTop = (currentMarginTop + footerRectangleDistanceFromBottom) + 'px';
+        footer.style.marginTop = (currentMarginTop + footerRectangleDistanceFromBottom + footerRectangle.height) + 'px';
     }
 }
